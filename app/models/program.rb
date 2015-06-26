@@ -1,9 +1,4 @@
 class Program < ActiveRecord::Base
-
-  has_many :taggings
-  has_many :tags through: :taggings
-
-  
-
-
+  belongs_to :school
+  has_many :tags, through: :tagging 
 end
