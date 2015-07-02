@@ -2,21 +2,21 @@
 
   <%= form_for @program do |f| %>
 
-<p>
-  Are scholarships available for this program?
-
-  <%= f.label :scholarships %>
-  <%= f.check_box :scholarships %>
-</p>
   <p>
-    How long is this program taught for?
-    <%= f.label :duration %>
-    <%= f.text_field :duration %>
+    Are scholarships available for this program?
+
+    <%= f.label :scholarships %>
+    <%= f.check_box :scholarships %>
   </p>
   <p>
-    Which skills are taught in this program?
-    <%= f.label :tags %>
-    <%= f.text_area :tags %>
+      How long is this program taught for?
+      <%= f.label :duration %>
+      <%= f.text_field :duration %>
+  </p>
+  <p>
+      Which skills are taught in this program?
+      <%= f.label :tags %>
+      <%= f.text_area :tags %>
   </p>
 
 
