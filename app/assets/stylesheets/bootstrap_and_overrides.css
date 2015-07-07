@@ -1,3 +1,6 @@
+@import "bootstrap";
+
+
 /*!
  * Bootstrap v3.3.5 (http://getbootstrap.com)
  * Copyright 2011-2015 Twitter, Inc.
@@ -4132,10 +4135,6 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     border-bottom-color: #fff;
   }
 }
-
-.nav-pills {
-  float: right;
-}
 .nav-pills > li {
   float: left;
 }
@@ -4149,7 +4148,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav-pills > li.active > a:hover,
 .nav-pills > li.active > a:focus {
   color: #fff;
-  background-color: #337ab7;
+  background-color: #BC3740;
 }
 .nav-stacked > li {
   float: none;

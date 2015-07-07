@@ -1,0 +1,139 @@
+// ORANGE: #D4A16B
+// RED: #BC3740
+// BLUE: #37BCB3
+
+// ========================  Titles & Text! =============================
+.jumbo-title {
+  font-size: 1.2em;
+  text-align: center;
+}
+
+h1 {
+  font-size: 6em !important;
+}
+
+h2 {
+  font-size: 3em !important;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 2em !important;
+  text-align: center;
+  font-family: 'Oswald', sans-serif !important;
+}
+
+a {
+  color: #37BCB3 !important;
+}
+
+p {
+  font-family: 'Lato', sans-serif !important;
+  font-size: 18px;
+}
+
+// ========================= Navigation! ===============================
+
+.nav {
+  top: 0;
+  background-color: #ededed;
+
+}
+
+.nav-pills {
+  float: right;
+}
+
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
+  background-color: #BC3740 !important;
+  color: #fff !important;
+  padding: 20px;
+}
+
+.nav-pills>li, .active>a:hover {
+  padding: 30px;
+
+}
+
+
+
+// ========================  Jumbotrons! =============================
+
+.jumbotron-orange {
+  background-color: #D4A16B;
+  width: 100%;
+  min-height: 600px;
+  padding: 1em;
+}
+
+.jumbotron-red {
+  background-color: #BC3740;
+  width: 100%;
+  min-height: 600px;
+  padding: 1em;
+}
+
+.jumbotron-red h1 {
+  color: #fff;
+}
+
+.jumbotron-blue {
+  background-color: #37BCB3;
+  width: 100%;
+  min-height: 600px;
+  padding: 1em;
+}
+
+.jumbotron-white {
+  background-color: #FFF;
+  width: 100%;
+  min-height: 600px;
+  padding: 1em;
+}
+
+// ========================  Container elements! ========================
+
+.container {
+  width: 100%;
+  min-height: 500px;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+  background-color: #fff;
+}
+
+.container-vide {
+  width: 100%;
+}
+
+.body {
+  padding: 0px;
+  margin: 0px;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+  clear: both;
+  font-family: 'Lato', sans-serif !important;
+}
+
+.col-lg-6 {
+  text-align: center;
+}
+
+.search-box {
+  display: block;
+  width: auto;
+}
+
+
+// ======= Text fields =======
+
+.city-search {
+  margin-bottom: 15px;
+}
+
+.subject-search {
+  margin-bottom: 15px;
+}
