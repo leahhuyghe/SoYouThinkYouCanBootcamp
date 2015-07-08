@@ -13,9 +13,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'cancancan'
 
 gem "rails-erd"
-gem 'bourbon'
 gem 'csv-mapper'
-
 
 group :development, :test do
   gem 'interactive_editor'

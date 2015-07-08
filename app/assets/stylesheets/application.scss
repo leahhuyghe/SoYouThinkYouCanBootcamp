@@ -80,7 +80,7 @@ p {
 .jumbotron-blue {
   background-color: #37BCB3;
   width: 100%;
-  min-height: 600px;
+  min-height: 780px;
   padding: 1em;
 }
 
@@ -265,4 +265,23 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   margin-right: auto;
   margin-left: auto;
   min-height: 100px;
+}
+
+.feature-school {
+  height: inherit;
+  display: block;
+  margin: 0 auto;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.bootcamp-logo {
+  border-radius: 10%;
+  width: 125px;
+  display: block;
+  margin: 0 auto;
+}
+
+.col-md-4 {
+  width: 30% !important;
 }
