@@ -14,6 +14,7 @@ gem 'cancancan'
 
 gem "rails-erd"
 gem 'bourbon'
+gem 'csv-mapper'
 
 
 group :development, :test do
