@@ -15,6 +15,7 @@ gem 'cancancan'
 gem "rails-erd"
 gem 'csv-mapper'
 
+
 group :development, :test do
   gem 'interactive_editor'
   gem 'hirb'
