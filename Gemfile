@@ -15,6 +15,8 @@ gem 'cancancan'
 gem "rails-erd"
 gem 'csv-importer'
 gem 'chosen'
+gem 'devise'
+gem 'activeadmin', github: 'activeadmin'
 
 
 group :development, :test do
@@ -27,4 +29,5 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'rspec-rails'
+
 end
