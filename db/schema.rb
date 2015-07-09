@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150708024605) do
+ActiveRecord::Schema.define(version: 20150709002257) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "pg_search_documents", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "searchable_id"
+    t.string   "searchable_type"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "pg_search_documents", ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id", using: :btree
 
   create_table "programs", force: :cascade do |t|
     t.string   "name"
@@ -25,7 +38,7 @@ ActiveRecord::Schema.define(version: 20150708024605) do
     t.datetime "updated_at",                    null: false
   end
 
-  add_index "programs", ["school_id"], name: "index_programs_on_school_id"
+  add_index "programs", ["school_id"], name: "index_programs_on_school_id", using: :btree
 
   create_table "schools", force: :cascade do |t|
     t.string   "name"
@@ -38,13 +51,10 @@ ActiveRecord::Schema.define(version: 20150708024605) do
     t.string   "postal_code"
     t.string   "facebook"
     t.string   "twitter"
-    t.integer  "user_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.string   "phone_number"
   end
-
-  add_index "schools", ["user_id"], name: "index_schools_on_user_id"
 
   create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id"
@@ -53,8 +63,8 @@ ActiveRecord::Schema.define(version: 20150708024605) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "taggings", ["program_id"], name: "index_taggings_on_program_id"
-  add_index "taggings", ["tag_id"], name: "index_taggings_on_tag_id"
+  add_index "taggings", ["program_id"], name: "index_taggings_on_program_id", using: :btree
+  add_index "taggings", ["tag_id"], name: "index_taggings_on_tag_id", using: :btree
 
   create_table "tags", force: :cascade do |t|
     t.string   "name"
@@ -62,4 +72,7 @@ ActiveRecord::Schema.define(version: 20150708024605) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "programs", "schools"
+  add_foreign_key "taggings", "programs"
+  add_foreign_key "taggings", "tags"
 end

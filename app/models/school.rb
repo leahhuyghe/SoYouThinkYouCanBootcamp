@@ -3,4 +3,9 @@ class School < ActiveRecord::Base
 
   has_many :programs
 
+  def self.for_city(city)
+    where(city: city)
+  end
+
+
 end

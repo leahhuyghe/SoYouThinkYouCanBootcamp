@@ -11,3 +11,5 @@
 
 
 # web_development = Program.create(name: 'Web Development', school: codecore, duration: 9,  )
+
+import = ImportSchoolCSV.new(file: "lib/csv/data/school_sample_data.csv")
