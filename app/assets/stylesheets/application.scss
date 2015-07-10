@@ -16,7 +16,6 @@ h2 {
   font-size: 3em !important;
 }
 
-
 h1, h2, h3, h4, h5, h6 {
   line-height: 2em !important;
   text-align: center;
@@ -32,13 +31,13 @@ p {
   font-size: 18px;
 }
 
+.fa {
+  color: #37BCB3;
+  padding-left: 10px;
+}
+
 // ========================= Navigation! ===============================
 
-.nav {
-  top: 0;
-  background-color: #ededed;
-
-}
 
 .nav-pills {
   float: right;
@@ -47,11 +46,9 @@ p {
 .nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
   background-color: #BC3740 !important;
   color: #fff !important;
-  padding: 20px;
 }
 
 .nav-pills>li, .active>a:hover {
-  padding: 30px;
 
 }
 
@@ -172,10 +169,11 @@ p {
   color: #9d9d9d;
   background-color: #fff;
 }
-.navbar-inverse .navbar-nav > li > a {
-  padding-top: 40px;
+.navbar-inverse .navbar-nav > li {
+  padding-top: 50px;
   color: #9d9d9d;
   background-color: #fff;
+  padding-right: 10px;
 }
 .navbar-inverse .navbar-nav > li > a:hover,
 .navbar-inverse .navbar-nav > li > a:focus {
