@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   resources :tags
   resources :users
   resources :faq
+  resources :search, only: :index
 
   root 'schools#index'
-
 
 end

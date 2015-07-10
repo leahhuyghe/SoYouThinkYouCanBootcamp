@@ -1,0 +1,5 @@
+<%= render partial: "nav" %>
+<h2>Search Results</h2>
+<% @results.each do |result| %>
+<%= render partial: result %>
+<% end %>

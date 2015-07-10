@@ -1,11 +1,22 @@
 class School < ActiveRecord::Base
+
+  validates :city, presence: true
+  validates :name, presence: true
+
   belongs_to :user
+  has_many :programs, dependent: :destroy
 
-  has_many :programs
+  # def self.for_city(city)
+  #   where(city: city)
+  # end
 
-  def self.for_city(city)
-    where(city: city)
+  def self.city_search(query)
+    where("city LIKE ?", "%#{query}%")
   end
+  def self.tags_search(query)
+    where("tags LIKE ?", "%#{query}%")
+  end
+
 
 
 end

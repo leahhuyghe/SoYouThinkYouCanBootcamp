@@ -43,4 +43,8 @@ class ProgramsControllerTest < ActionController::TestCase
     @program = Program.find(params[:id])
   end
 
+  def tags_search_params
+    params.require(:program).permit([:tags])
+  end
+
 end

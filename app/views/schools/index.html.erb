@@ -9,23 +9,37 @@
 
   <div class="jumbotron-red" id="find-bootcamp">
       <h1>FIND A BOOTCAMP</h1>
-      <div class="col-lg-6">
+
+       <div class="col-md-6 search">
         <h3>Find a Local School</h3>
         <p>Where do you want to study?</p>
-
-        <input type="text" name="search" placeholder="eg. San Francisco" class="city-search">
-        <br>
-        <input type="button" name="go" value="Search" class="btn btn-default">
-
+          <!-- I added method 'get' to the form tag because it was trying to create a school (and throw an error) when using post. -->
+        <%= form_tag(search_index_path, :method => "get", class: "chosen-container-multi chosen-choices", id: "search-form") do %>
+        <div class="search-form">
+          <%= text_field_tag :search, params[:city_search], placeholder: "eg. San Francisco" %>
+        </div>
+        <div>
+          <!-- Added name nil to the submit because the search query was being tacked on to the slug, still doesnt work -->
+          <%= submit_tag "Search", :name => nil %>
+        </div>
+        <% end %>
       </div>
 
-      <div class="col-lg-6">
+      <div class="col-md-6 search">
 
         <h3>Search by Subject</h3>
         <p>What do you want to learn?</p>
-        <input type="text" name="search" placeholder="eg. Ruby on Rails" class="subject-search">
-        <br>
-        <input type="button" name="go" value="Search" class="btn btn-default">
+        <!-- I added method 'get' to the form tag because it was trying to create a school (and throw an error) when using post. -->
+        <%= form_tag(search_index_path, :method => "get", id: "search-form") do %>
+        <div class="search-form">
+          <%= text_field_tag :search, params[:tags_search], placeholder: "eg. Rails" %>
+        </div>
+        <div>
+          <!-- Added name nil to the submit because the search query was being tacked on to the slug, still doesnt work -->
+          <%= submit_tag "Search", :name => nil %>
+        </div>
+        <% end %>
+
       </div>
   </div>
 
