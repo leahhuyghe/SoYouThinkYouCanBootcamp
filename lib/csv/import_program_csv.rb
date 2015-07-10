@@ -11,7 +11,7 @@ class ImportProgramCSV
   column :format
   column :school_id
 
-  identifier :id
+  identifier :name
 
   when_invalid :abort
 
