@@ -2,19 +2,16 @@
   <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color: #fff;">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand animated" href="#"><%= image_tag('syt_logo.png') %></a>
+        <a class="navbar-brand animated"><%= link_to image_tag('syt_logo.png'), root_path %></a>
       </div>
       <div>
         <ul class="nav navbar-nav">
-          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">About <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><%= link_to "FAQ", faq_index_path %></li>
-              <li><%= link_to "All Programs", programs_path %></li>
-              <li><%= link_to "All Schools", schools_path %></li>
-            </ul>
-          </li>
+      
           <li><a href="#find-bootcamp">Find a Bootcamp</a></li>
           <li><a href="#featured-schools">Featured Schools</a></li>
+          <li><%= link_to "FAQ", faq_index_path %></li>
+          <li><%= link_to "All Programs", programs_path %></li>
+          <li><%= link_to "All Schools", schools_path %></li>
         </ul>
 
           <ul class="nav navbar-nav navbar-right">

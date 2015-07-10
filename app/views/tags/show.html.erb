@@ -1,0 +1,9 @@
+<h2><%= @tag.name %></h2>
+<p>
+  There are <%= @programs.length %> programs that match <%= @tag.name %>
+</p>
+<div>
+  <%= @programs.each do |program| %>
+  <%= link_to program.name, program(program) %>
+</div>
+<%= end %>

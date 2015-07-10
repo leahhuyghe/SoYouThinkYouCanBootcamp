@@ -1,23 +1,42 @@
+<%= render partial: 'schools/nav' %>
+<br>
 <h2>Add a Program</h2>
 
   <%= form_for @program do |f| %>
 
+  <div class="add-program">
+    <p>
+    Program Name: <%= f.text_field :name %>
+    </p>
+  </div>
+  <div class="add-program">
+    <p>
+      Tuition Price (no decimals, please): <%= f.number_field :price %>
+    </p>
+  </div>
+<div class="add-program">
   <p>
-    Are scholarships available for this program?
+    Duration (in weeks): <%= f.number_field :duration_days %>
+  </p>
+</div>
+<div class="add-program">
+  <p>
+    Is this program full time? <%= f.check_box :full_time %>
+  </p>
+</div>
+<div class="add-program">
+  <p>
+    Is this program in-person, online, or hybrid (both)<%= f.text_field :format %>
+  </p>
+</div>
+<div class="add-program">
+  <p>
+    Which skills are taught in this program? <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name %>
+  </p>
 
-    <%= f.label :scholarships %>
-    <%= f.check_box :scholarships %>
-  </p>
-  <p>
-      How long is this program taught for?
-      <%= f.label :duration %>
-      <%= f.text_field :duration %>
-  </p>
-  <p>
-      Which skills are taught in this program?
-      <%= f.label :tags %>
-      <%= f.text_area :tags %>
-  </p>
+    <%= f.submit "Submit Question", class: "btn btn-default" %>
+</div>
+
 
 
 

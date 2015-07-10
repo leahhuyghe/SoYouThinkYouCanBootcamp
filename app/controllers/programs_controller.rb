@@ -5,7 +5,7 @@ class ProgramsController < ApplicationController
 
   def index
     @program = Program.all
-    if params[:search]
+    if params[:tags_search]
       @programs = Program.search(params[:search])
     else
       @programs = Program.all
@@ -37,6 +37,9 @@ class ProgramsController < ApplicationController
       params.require(:program).permit([:name, :tags, :duration, :price, :max_class_size, :schedule, :upcoming_start_dates, :format])
   end
 
+  def tags_search_params
+    params.require(:program).permit([:name, :tags, :school])
+  end
 
 
 end

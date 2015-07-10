@@ -1,18 +1,16 @@
-<%= render '/layouts/nav' %>
+<%= render partial: "schools/nav" %>
 
-<div class="container center-text" style="padding-top: 100px;">
-  <h2 class="center-text">All Programs</h2>
-    <p>
-      Browse our complete database of North American coding programs. Cherry-picked from far &amp; wide for keeners like you.
-    </p>
+<div class="jumbotron-orange">
 
+  <h1>All Cohorts</h1>
   <div class="col-md-4">
-    <% @program.each do |program| %>
-    <div class="well">
-      <h2><%= @program.name %></h2>
-      <p><%= @program.description %></p>
-    </div>
-<% end %>
 
   </div>
+  <div class="col-md-5 text-center">
+      <p>Not sure where you want to study? Maybe you're not sure what you'd like to learn. Browse our complete list of schools. You've got more options than you think!</p>
+  </div>
+  <div class="col-md-4">
+
+  </div>
+
 </div>
