@@ -3,10 +3,10 @@ class ImportProgramCSV
 
   model Program
 
-  column :name
-  column :duration_days
-  column :price
-  column :max_class_size
+  column :name, as: ["program_name"]
+  column :duration_weeks, as: ["duration_weeks"]
+  column :price, as: ["price"]
+  column :max_class_size, as: ["max_class_size"]
   column :full_time
   column :format
   column :school_id

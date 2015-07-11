@@ -14,7 +14,7 @@
         </ul>
           <ul class="nav navbar-nav navbar-right">
             <% if current_user %>
-            <li>Hello <%= "#{current_user.first_name}" %></li>
+            <li>Hello <%= "#{current_user.full_name}" %></li>
               <li><%= link_to "Log out", destroy_user_session_path %></li>
             <% else  %>
               <li><span><i class="fa fa-chevron-circle-up"></i>&nbsp;<%= link_to "Sign Up as a Bootcamp", new_user_registration_path %></span></li>

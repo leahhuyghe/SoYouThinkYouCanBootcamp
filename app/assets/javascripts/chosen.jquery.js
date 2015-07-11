@@ -1,14 +1,3 @@
-$(".city-search").chosen({
-  disable_search_threshold: 3,
-  no_results_text: "Oops, nothing found!",
-});
-
-$(".subject-search").chosen({
-  disable_search_threshold: 10,
-  no_results_text: "Oops, nothing found!",
-});
-
-
 /*!
 Chosen, a Select Box Enhancer for jQuery and Prototype
 by Patrick Filler for Harvest, http://getharvest.com

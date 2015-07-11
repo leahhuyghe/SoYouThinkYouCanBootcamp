@@ -5,16 +5,14 @@
   <%= render '/schools/nav' %>
 
   <div class="jumbotron-red" id="find-bootcamp">
-
       <h1 style="padding-top: 1em;">FIND A BOOTCAMP</h1>
-
        <div class="col-md-6 search">
         <h3>Find a Local School</h3>
         <p>Where do you want to study?</p>
           <!-- I added method 'get' to the form tag because it was trying to create a school (and throw an error) when using post. -->
-        <%= form_tag(search_index_path, :method => "get", class: "chosen-container-multi chosen-choices", id: "search-form") do %>
+        <%= form_tag(search_index_path, :method => "get", class: "chosen-container-multi chosen-choices") do %>
         <div class="search-form">
-          <%= text_field_tag :search, params[:city_search], placeholder: "eg. San Francisco" %>
+          <%= text_field_tag :city_search, params[:city_search], placeholder: "eg. San Francisco", class: "chosen-container-multi chosen-choices" %>
         </div>
         <div>
           <!-- Added name nil to the submit because the search query was being tacked on to the slug, still doesnt work -->
@@ -24,13 +22,12 @@
       </div>
 
       <div class="col-md-6 search">
-
         <h3>Search by Subject</h3>
         <p>What do you want to learn?</p>
         <!-- I added method 'get' to the form tag because it was trying to create a school (and throw an error) when using post. -->
         <%= form_tag(search_index_path, :method => "get", id: "search-form") do %>
         <div class="search-form">
-          <%= text_field_tag :search, params[:tags_search], placeholder: "eg. Rails" %>
+          <%= text_field_tag :tags_search, params[:tags_search], placeholder: "eg. Rails", class: "chosen-container-multi chosen-choices" %>
         </div>
         <div>
           <!-- Added name nil to the submit because the search query was being tacked on to the slug, still doesnt work -->
@@ -43,39 +40,30 @@
 
   <div class="jumbotron-blue" id="featured-schools">
     <h2>Featured Schools</h2>
-
-
       <div class="well feature-school col-md-4">
         <%= image_tag('codecore_bootcamp_logo.jpg',
             :class => 'bootcamp-logo') %>
-          <h4>CodeCore Bootcamp</h4>
-
-          <p>The CodeCore Bootcamp curriculum was developed by our team of industry veterans, who continuously consult with our corporate Hiring Partners to review, update and optimize our program.  </p><p>We teach not just the fundamentals of coding and programming languages, but also offer real-world training in software architecture and development methodologies and processes. Graduates come away with the tools and understanding to communicate and work effectively with teams in a fast-paced development environment.
-          </p>
+          <h4><%= School.find(1).name %></h4>
+          <h5><%= School.find(1).city %>,&nbsp;<%= School.find(1).country %></h5>
+          <p><%= School.find(1).description %></p>
       </div>
 
       <div class="well feature-school col-md-4">
-        <%= image_tag('codecore_bootcamp_logo.jpg',
+        <%= image_tag('codefellows.png',
             :class => 'bootcamp-logo') %>
-          <h4>CodeCore Bootcamp</h4>
-
-          <p>The CodeCore Bootcamp curriculum was developed by our team of industry veterans, who continuously consult with our corporate Hiring Partners to review, update and optimize our program.  </p><p>We teach not just the fundamentals of coding and programming languages, but also offer real-world training in software architecture and development methodologies and processes. Graduates come away with the tools and understanding to communicate and work effectively with teams in a fast-paced development environment.
-          </p>
+            <h4><%= School.find(4).name %></h4>
+            <h5><%= School.find(4).city %>,&nbsp;<%= School.find(1).country %></h5>
+            <p><%= School.find(4).description %></p>
       </div>
 
       <div class="well feature-school col-md-4">
-        <%= image_tag('codecore_bootcamp_logo.jpg',
+        <%= image_tag('bloc-io-logo.png',
             :class => 'bootcamp-logo') %>
-          <h4>CodeCore Bootcamp</h4>
-
-          <p>The CodeCore Bootcamp curriculum was developed by our team of industry veterans, who continuously consult with our corporate Hiring Partners to review, update and optimize our program.  </p><p>We teach not just the fundamentals of coding and programming languages, but also offer real-world training in software architecture and development methodologies and processes. Graduates come away with the tools and understanding to communicate and work effectively with teams in a fast-paced development environment.
-          </p>
+            <h4><%= School.find(3).name %></h4>
+            <h5><%= School.find(3).city %>,&nbsp;<%= School.find(1).country %></h5>
+            <p><%= School.find(3).description %></p>
       </div>
-
-
     </div>
-
-
   </div>
 
 <div class="footer-footer" id="footer">

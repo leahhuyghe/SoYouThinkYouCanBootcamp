@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150710023105) do
+ActiveRecord::Schema.define(version: 20150710234841) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20150710023105) do
 
   create_table "programs", force: :cascade do |t|
     t.string   "name"
-    t.integer  "duration_days"
+    t.integer  "duration_weeks"
     t.decimal  "price"
     t.integer  "max_class_size"
     t.boolean  "full_time",      default: true

@@ -9,7 +9,7 @@ class SchoolsController < ApplicationController
     end
   end
 
-# scope :for_city, -> (city) {where (city: city)}
+ # scope :for_city, -> (city) {where (city: city)}
 #is the same as below
   def show
     School.for_city(params[:city])
@@ -23,6 +23,10 @@ private
 
   def city_search_params
     params.require(:school).permit([:name, :programs, :city])
+  end
+
+  def tags_search_params
+    params.require(:program).permit([:name, :tags, :school])
   end
 
 

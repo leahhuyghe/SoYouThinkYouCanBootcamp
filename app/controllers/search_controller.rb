@@ -5,8 +5,6 @@ class SearchController < ApplicationController
       @results = School.city_search(params[:city_search])
     elsif params[:tags_search]
       @results = Program.tags_search(params[:tags_search])
-    else
-      @results = School.all
     end
 
   end

@@ -6,7 +6,7 @@ class ProgramsController < ApplicationController
   def index
     @program = Program.all
     if params[:tags_search]
-      @programs = Program.search(params[:search])
+      @programs = Program.search(params[:tags_search])
     else
       @programs = Program.all
     end
@@ -18,7 +18,6 @@ class ProgramsController < ApplicationController
 
   def create
     @program = Program.new(params[:id])
-
     if @program.save
       redirect_to program_path(@program), notice: "Program created!"
     else
@@ -30,6 +29,17 @@ class ProgramsController < ApplicationController
   def show
     @program = Program.new
   end
+
+  def edit
+
+  end
+
+  def update
+    @program.update
+    redirect_to program_path(@program)
+  end
+
+
 
   private
 
