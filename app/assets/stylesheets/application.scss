@@ -8,9 +8,30 @@
   text-align: center;
 }
 
+.title {
+  h2 {
+    color: #fff;
+  }
+}
+
+.col-lg-12 {
+  h3 {
+    float: left;
+  }
+  p {
+    float: left;
+  }
+}
+
+textarea {
+	height: 75px;
+  width: 152px;
+  padding-right: 10px;
+	padding: 5px;
+}
+
 h1 {
   font-size: 6em !important;
-  line-height: 0.428571429;
 }
 
 h2 {
@@ -74,6 +95,10 @@ p {
   min-height: 600px;
 }
 
+.faq {
+
+}
+
 .container-faq {
   // background-image: url('http://41.media.tumblr.com/dd20e4ec9590b87699e1ea0876d775d8/tumblr_npu7omOKUn1sfie3io1_1280.jpg');
   background-image: url(asset-path('expertise.png'));
@@ -81,8 +106,6 @@ p {
   height: 50vw;
   min-height: 600px;
 }
-
-
 
 .jumbotron-orange {
   background-color: #D4A16B;
@@ -116,7 +139,21 @@ p {
   padding: 1em;
 }
 
+
 // ========================  Container elements! ========================
+
+.footer {
+
+  width: 100%;
+  min-height: 250px;
+  padding: 1em;
+  background-color: #888;
+  text-align: center;
+
+  h4 {
+    color: #fff;
+  }
+}
 
 .container {
   width: 100%;
@@ -131,6 +168,11 @@ p {
   position: relative;
   z-index: -1;
   width: 100%;
+}
+
+
+.container-signup {
+  text-align: center;
 }
 
 .container-vide {
@@ -319,4 +361,25 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 
 .center-text {
   text-align: center;
+}
+
+.form {
+  p {
+    text-align: left;
+  }
+  .field {
+    float: left;
+  }
+
+  .actions {
+    margin-top: 20px;
+    margin-right: 100px;
+    float: left;
+  }
+}
+
+
+// ======================= Images ==============
+.thumbnail-image {
+  width: 100px;
 }

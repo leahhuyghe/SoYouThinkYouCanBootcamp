@@ -17,6 +17,8 @@ gem 'csv-importer'
 gem 'chosen'
 gem 'devise'
 gem 'activeadmin', github: 'activeadmin'
+gem 'carrierwave', github:'carrierwaveuploader/carrierwave'
+gem 'mini_magick'
 
 
 group :development, :test do

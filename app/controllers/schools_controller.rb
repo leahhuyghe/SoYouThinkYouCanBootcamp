@@ -1,5 +1,7 @@
 class SchoolsController < ApplicationController
 
+#mount_uploaders :avatars, AvatarUploader
+
 
   def index
     if params[:city_search]
@@ -9,16 +11,34 @@ class SchoolsController < ApplicationController
     end
   end
 
+
+def new
+  @school = School.new
+end
+
+def create
+  @school = School.new(school_params)
+  if @school.save
+    redirect_to school_path(@school)
+  else
+    render :new
+  end
+
+end
+
+
+
  # scope :for_city, -> (city) {where (city: city)}
 #is the same as below
   def show
     School.for_city(params[:city])
+    @school = School.find params[:id]
   end
 
 private
 
   def school_params
-    params.require(:school).permit([:name, :description, :website, :email, :street_address, :city, :country, :postal_code, :facebook, :twitter, :phone_number])
+    params.require(:school).permit([:name, :description, :website, :email, :street_address, :city, :country, :postal_code, :facebook, :twitter, :phone_number, :avatar])
   end
 
   def city_search_params

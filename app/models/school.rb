@@ -7,6 +7,7 @@ class School < ActiveRecord::Base
   belongs_to :user
   has_many :programs, dependent: :destroy
 
+
   # def self.for_city(city)
   #   where(city: city)
   # end
