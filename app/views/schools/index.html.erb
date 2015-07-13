@@ -15,20 +15,22 @@
 
 </div>
 
+<div class="container">
+  <% @schools.each do |school| %>
+    <div class="col-md-4">
+      <h3><%= school.name %></h3>
+      <p><%= school.description %></p>
+      <p><%= school.website %></p>
+      <p><%= school.email %></p>
+      <p><%= school.street_address %></p>
+      <p><%= school.city %></p>
+      <p><%= school.country %></p>
+      <p><%= school.facebook %></p>
+      <p><%= school.twitter %></p>
+      <p><%= school.phone_number %></p>
+    </div>
+  <% end %>
+</div>
 
-<% @schools.each do |school| %>
-  <div class="col-md-4">
-    <h3><%= school.name %></h3>
-    <p><%= school.description %></p>
-    <p><%= school.website %></p>
-    <p><%= school.email %></p>
-    <p><%= school.street_address %></p>
-    <p><%= school.city %></p>
-    <p><%= school.country %></p>
-    <p><%= school.facebook %></p>
-    <p><%= school.twitter %></p>
-    <p><%= school.phone_number %></p>
-  </div>
-<% end %>
 
 <%= render partial: 'layouts/footer' %>

@@ -1,3 +1,4 @@
+
 <%= render partial: "schools/nav" %>
 
 <div class="jumbotron-orange">
@@ -13,4 +14,14 @@
 
   </div>
 
+</div>
+
+<div class="container">
+<% @program.each do |program| %>
+  <%= program.name %>
+  <%= program.duration_weeks %>
+  <%= program.price %>
+  <%= program.max_class_size %>
+  <%= program.full_time %>
+  <% end %>
 </div>
