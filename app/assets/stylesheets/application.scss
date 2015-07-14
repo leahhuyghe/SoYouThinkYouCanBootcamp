@@ -1,11 +1,13 @@
-// ORANGE: #D4A16B
-// RED: #
-// BLUE: #37BCB3
+// ORANGE: #D4A16B;
+// RED: #BC3740;
+// BLUE: #37BCB3;
+// GOLD: #ffad00;
 
 // ========================  Titles & Text! =============================
 .jumbo-title {
   font-size: 1.2em;
   text-align: center;
+
 }
 
 .title {
@@ -50,7 +52,7 @@ a {
 
 p {
   font-family: 'Lato', sans-serif !important;
-  font-size: 18px;
+  font-size: 16px;
   margin: 0px;
 }
 
@@ -75,9 +77,7 @@ p {
   color: #fff !important;
 }
 
-.nav-pills>li, .active>a:hover {
 
-}
 
 // ==========Buttons =================
 
@@ -127,6 +127,13 @@ p {
 
 .jumbotron-blue {
   background-color: #37BCB3;
+  width: 100%;
+  min-height: 780px;
+  padding: 1em;
+}
+
+.jumbotron-gold {
+  background-color: #ffad00;
   width: 100%;
   min-height: 780px;
   padding: 1em;
@@ -211,6 +218,12 @@ p {
 
 .subject-search {
   margin-bottom: 15px;
+}
+
+.search {
+  margin: 0 auto;
+  display: block;
+  text-align: center;
 }
 
 // ===  Navbar inverse ==
@@ -378,6 +391,20 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   }
 }
 
+
+
+.results {
+  margin-top: 100px;
+}
+
+.chosen-container a {
+  color: #333 !important;
+  display: inline-box;
+}
+
+.chosen-container-single, .chosen-single {
+  display: inline-box;
+}
 
 // ======================= Images ==============
 .thumbnail-image {

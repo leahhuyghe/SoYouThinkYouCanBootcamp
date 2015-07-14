@@ -1,5 +1,11 @@
 <%= render partial: "nav" %>
-<h2>Results</h2>
-<% @results.each do |result| %>
-<%= render partial: result %>
-<% end %>
+
+<div class="container">
+  <div class="col-md-6 results" style="">
+    <% @results.each do |result| %>
+    <%= render partial: result %>
+    <% end %>
+  </div>
+</div>
+
+<%= render partial: 'layouts/footer' %>

@@ -1,7 +1,37 @@
   <%= render '/schools/nav' %>
 
+
   <div style="width: 100%; height: 50vw;"
-  data-vide-bg="mp4: <%= video_url('Typing3_edit.mp4') %>, poster: <%= image_url('Typing3_edit.png') %>" data-vide-options="loop: true, muted: false, position: 0% 0%, posterType: png"></div>
+  data-vide-bg="mp4: <%= video_url('Typing3_edit.mp4') %>, poster: <%= image_url('Typing3_edit.png') %>" data-vide-options="loop: true, muted: false, position: 0% 0%, posterType: png">
+
+<div class="col-md-6 col-xs-push-1" style="color: #FFF; text-shadow: 3px 3px 10px rgba(150, 150, 150, 1); border-left: 7px solid white; margin-top: 100px;">
+  <i><p style="font-size: 3.5em; padding-top: 50px;">&#8220;Computer programming is the single best professional opportunity in the world.&#8221;</p></i>
+  <p style="font-size: 26px; text-align: center;">&#8212; &nbsp;Steve Ballmer</p>
+  </div>
+</div>
+
+
+
+
+
+
+    <div class="container" style="padding-top: 25px; padding-bottom: 25px; min-height: 275px;">
+      <div class="col-md-4" style="margin: auto 0; display: block; margin-left: 110px;">
+        <i class="fa fa-graduation-cap" style="font-size: 11em; text-align: center; height: auto; display: block; color: #ffad00; "></i>
+        <h3>Top Schools</h3>
+        <p>We only list select, highly-ranked schools with phenominal hiring rates. You won't find Pheonix here.</p>
+      </div>
+      <div class="col-md-4" style="margin: auto 0; display: block;">
+        <i class="fa fa-thumb-tack" style="font-size: 11em; text-align: center; height: auto; display: block; color: #ffad00;"></i>
+        <h3>Accurate</h3>
+        <p>Our listings are recent &amp; kept up-to-date by industry professionals.</p>
+      </div>
+      <div class="col-md-4" style="margin: auto 0; display: block;">
+        <i class="fa fa-bookmark" style="font-size: 11em; text-align: center; height: auto; display: block; color: #ffad00;"></i>
+        <h3>Resources</h3>
+        <p>We have the largest selection of resources to set you off on the right foot before you begin your cohort.</p>
+      </div>
+    </div>
 
 
   <div class="container-launch" id="accelerate">
@@ -17,15 +47,17 @@
       </div>
   </div>
 
+
+
   <div class="jumbotron-red" id="find-bootcamp">
       <h1 style="padding-top: 1em;">FIND A BOOTCAMP</h1>
        <div class="col-md-6 search">
         <h3>Find a Local School</h3>
         <p>Where do you want to study?</p>
           <!-- I added method 'get' to the form tag because it was trying to create a school (and throw an error) when using post. -->
-        <%= form_tag(search_index_path, :method => "get", class: "chosen-container-multi chosen-choices") do %>
+        <%= form_tag(search_index_path, :method => "get", class: "") do %>
         <div class="search-form">
-          <%= text_field_tag :city_search, params[:city_search], placeholder: "eg. San Francisco", class: "chosen-container-multi chosen-choices" %>
+          <%= select_tag :city_search,  options_from_collection_for_select(School.all, "id", "city"), placeholder: "eg. San Francisco", class: "chosen-select" %>
         </div>
         <div>
           <!-- Added name nil to the submit because the search query was being tacked on to the slug, still doesnt work -->
@@ -38,9 +70,9 @@
         <h3>Search by Subject</h3>
         <p>What do you want to learn?</p>
         <!-- I added method 'get' to the form tag because it was trying to create a school (and throw an error) when using post. -->
-        <%= form_tag(search_index_path, :method => "get", id: "search-form") do %>
+        <%= form_tag(search_index_path, :method => "get", class: "chosen-container-multi chosen-choices",  id: "search-form") do %>
         <div class="search-form">
-          <%= text_field_tag :tags_search, params[:tags_search], placeholder: "eg. Rails", class: "chosen-container-multi chosen-choices" %>
+          <%= select_tag :tags_search,  options_from_collection_for_select(Program.all, "id", "tags"), placeholder: "eg. Rails", class: "chosen-select" %>
         </div>
         <div>
           <!-- Added name nil to the submit because the search query was being tacked on to the slug, still doesnt work -->
@@ -51,7 +83,7 @@
       </div>
   </div>
 
-  <div class="jumbotron-blue" id="featured-schools">
+  <div class="jumbotron-gold" id="featured-schools">
     <h2>Featured Schools</h2>
       <div class="well feature-school col-md-4">
         <%= image_tag('codecore_bootcamp_logo.jpg',

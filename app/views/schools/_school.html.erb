@@ -1,7 +1,7 @@
 
-<p><%= school.name %></p>
-<p><%= school.description %></p>
-<p>  <%= school.id %></p>
-<p>  <%= school.created_at %></p>
-<p>  <%= school.name %></p>
-<p>  <%= school.facebook %></p>
+    <%#= school.avatar %>
+    <h3><%= school.name %></h3>
+    <h5><%= school.city %>,&nbsp;<%= school.country %></h5>
+    <p><%= school.description %></p>
+    <%= link_to image_tag("facey.png"), school.facebook %>
+    <%= link_to image_tag("twitterblack.png"), school.twitter %>
