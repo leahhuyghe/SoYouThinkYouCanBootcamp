@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 # before_action :authenticate_user!
+has_many :schools, dependent: :destroy
+has_many :programs, dependent: :destroy
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

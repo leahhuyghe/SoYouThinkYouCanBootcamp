@@ -17,13 +17,12 @@ class ProgramsController < ApplicationController
   end
 
   def create
-    @program = Program.new(params[:id])
+    @program = Program.new(program_params)
     if @program.save
       redirect_to program_path(@program), notice: "Program created!"
     else
       render :new
     end
-
   end
 
   def show
@@ -31,7 +30,13 @@ class ProgramsController < ApplicationController
   end
 
   def edit
-
+    redirect_to root_path, alert: "access denied" unless can? :edit, @program
+    @program.slug = nil
+    if @program.update(program_params)
+      redirect_to program_path(@program)
+    else
+      render :edit
+    end
   end
 
   def update
@@ -40,11 +45,10 @@ class ProgramsController < ApplicationController
   end
 
 
-
   private
 
   def program_params
-      params.require(:program).permit([:name, :tags, :duration, :price, :max_class_size, :schedule, :upcoming_start_dates, :format])
+      params.require(:program).permit([:school_id, :name, :duration_weeks, :price, :max_class_size, :full_time, :format])
   end
 
   def tags_search_params

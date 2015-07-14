@@ -11,4 +11,6 @@ class TagsController < ApplicationController
     @tag = Tag.new
   end
 
+private
+
 end

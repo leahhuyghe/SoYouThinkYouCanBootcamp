@@ -1,6 +1,7 @@
 class SchoolsController < ApplicationController
-
+before_action :authenticate_user!
 #mount_uploaders :avatars, AvatarUploader
+
 
 
   def index
@@ -12,19 +13,25 @@ class SchoolsController < ApplicationController
   end
 
 
-def new
-  @school = School.new
-end
-
-def create
-  @school = School.new(school_params)
-  if @school.save
-    redirect_to school_path(@school)
-  else
-    render :new
+  def new
+    @school = School.new
   end
 
-end
+  def create
+    @school = School.new(school_params)
+    @school.user = current_user
+    if @school.save
+      redirect_to school_path(@school)
+    else
+      render :new
+    end
+
+  end
+
+  def edit
+    
+  end
+
 
 
 

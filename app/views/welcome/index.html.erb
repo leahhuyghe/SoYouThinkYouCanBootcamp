@@ -1,6 +1,5 @@
   <%= render '/schools/nav' %>
 
-
   <div style="width: 100%; height: 50vw;"
   data-vide-bg="mp4: <%= video_url('Typing3_edit.mp4') %>, poster: <%= image_url('Typing3_edit.png') %>" data-vide-options="loop: true, muted: false, position: 0% 0%, posterType: png">
 
@@ -9,10 +8,6 @@
   <p style="font-size: 26px; text-align: center;">&#8212; &nbsp;Steve Ballmer</p>
   </div>
 </div>
-
-
-
-
 
 
     <div class="container" style="padding-top: 25px; padding-bottom: 25px; min-height: 275px;">
@@ -50,34 +45,34 @@
 
 
   <div class="jumbotron-red" id="find-bootcamp">
-      <h1 style="padding-top: 1em;">FIND A BOOTCAMP</h1>
-       <div class="col-md-6 search">
-        <h3>Find a Local School</h3>
+      <h1>FIND A BOOTCAMP</h1>
+       <div class="col-md-6 search" style="color: #fff;">
+        <h2>Find a Local School</h2>
         <p>Where do you want to study?</p>
           <!-- I added method 'get' to the form tag because it was trying to create a school (and throw an error) when using post. -->
         <%= form_tag(search_index_path, :method => "get", class: "") do %>
-        <div class="search-form">
-          <%= select_tag :city_search,  options_from_collection_for_select(School.all, "id", "city"), placeholder: "eg. San Francisco", class: "chosen-select" %>
-        </div>
-        <div>
-          <!-- Added name nil to the submit because the search query was being tacked on to the slug, still doesnt work -->
-          <%= submit_tag "Search", :name => nil, class: "btn btn-default" %>
-        </div>
+          <div class="search-form">
+            <%= select_tag :city_search,  options_from_collection_for_select(School.all, "id", "city"), placeholder: "eg. San Francisco", class: "chosen-select" %>
+          </div>
+          <div>
+            <!-- Added name nil to the submit because the search query was being tacked on to the slug, still doesnt work -->
+            <%= submit_tag "Search", :name => nil, class: "btn btn-default" %>
+          </div>
         <% end %>
       </div>
 
-      <div class="col-md-6 search">
-        <h3>Search by Subject</h3>
+      <div class="col-md-6 search" style="color: #fff;">
+        <h2>Search by Subject</h2>
         <p>What do you want to learn?</p>
         <!-- I added method 'get' to the form tag because it was trying to create a school (and throw an error) when using post. -->
-        <%= form_tag(search_index_path, :method => "get", class: "chosen-container-multi chosen-choices",  id: "search-form") do %>
-        <div class="search-form">
-          <%= select_tag :tags_search,  options_from_collection_for_select(Program.all, "id", "tags"), placeholder: "eg. Rails", class: "chosen-select" %>
-        </div>
-        <div>
-          <!-- Added name nil to the submit because the search query was being tacked on to the slug, still doesnt work -->
-          <%= submit_tag "Search", :name => nil, class: "btn btn-default" %>
-        </div>
+        <%= form_tag(search_index_path, :method => "get", class: "chosen-container-multi chosen-choices", id: "search-form") do %>
+          <div class="search-form">
+            <%= select_tag :tags_search,  options_from_collection_for_select(Tag.all, "id", "name"), placeholder: "eg. Rails", class: "chosen-select" %>
+          </div>
+          <div>
+            <!-- Added name nil to the submit because the search query was being tacked on to the slug, still doesnt work -->
+            <%= submit_tag "Search", :name => nil, class: "btn btn-default" %>
+          </div>
         <% end %>
 
       </div>
