@@ -1,6 +1,6 @@
 
-  <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color: #fff;">
-    <div class="container-fluid">
+  <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color: #fff; top: 0; height: 110px;">
+
       <div class="navbar-header navbar-brand">
       <%= link_to image_tag('syt_logo.png'), root_path %>
       </div>
@@ -14,8 +14,8 @@
         </ul>
           <ul class="nav navbar-nav navbar-right">
             <% if current_user %>
-            <li>Hello <%= "#{current_user.first_name}" %></li>
-              <li><%= link_to "Log out", destroy_user_session_path %></li>
+            <li><%= link_to "Log out", destroy_user_session_path %></li>
+            <li><%= link_to "List your Bootcamp", new_school_path %></li>
             <% else  %>
               <li><span><i class="fa fa-chevron-circle-up"></i>&nbsp;<%= link_to "Sign Up as a Bootcamp", new_user_registration_path %></span></li>
               <li><span><i class="fa fa-sign-in"></i>&nbsp;<%= link_to "Log in", new_user_session_path %></span></li>
@@ -24,5 +24,5 @@
 
         <% end %>
       </div>
-    </div>
+
   </nav>

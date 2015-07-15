@@ -1,4 +1,4 @@
-<%= render partial: "nav" %>
+<%= render partial: 'layouts/nav' %>
 
 <div class="jumbotron-orange">
 
@@ -17,17 +17,24 @@
 
 <div class="container">
   <% @schools.each do |school| %>
-    <div class="col-md-4">
+    <div class="col-lg-6">
       <h3><%= school.name %></h3>
-      <p><%= school.description %></p>
-      <p><%= school.website %></p>
-      <p><%= school.email %></p>
-      <p><%= school.street_address %></p>
-      <p><%= school.city %></p>
-      <p><%= school.country %></p>
-      <p><%= school.facebook %></p>
-      <p><%= school.twitter %></p>
-      <p><%= school.phone_number %></p>
+      <div class="col-lg-6">
+        <p class="school-description"><%= school.description %></p>
+      </div>
+      <div class="col-lg-6">
+        <div class="school-address">
+          <%= school.street_address %><br>
+          <%= school.city %>, <%= school.country %><br>
+          <%= school.phone_number %>
+        </div>
+      </div>
+
+      <%= link_to ('<i class="fa fa-link fa-2x"></i>').html_safe, school.website  %>
+      <%= link_to ('<i class="fa fa-envelope-o fa-2x"></i>').html_safe, mailto:school.email  %>
+      <%= link_to ('<i class="fa fa-facebook fa-2x"></i>').html_safe, school.facebook  %>
+      <%= link_to ('<i class="fa fa-twitter fa-2x"></i>').html_safe, school.twitter  %>
+
     </div>
   <% end %>
 </div>

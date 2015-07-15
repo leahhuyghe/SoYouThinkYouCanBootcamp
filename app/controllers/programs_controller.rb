@@ -31,18 +31,17 @@ class ProgramsController < ApplicationController
 
   def edit
     redirect_to root_path, alert: "access denied" unless can? :edit, @program
-    @program.slug = nil
+  end
+
+  def update
     if @program.update(program_params)
-      redirect_to program_path(@program)
+      redirect_to program_path(@program), notice: "Program updated"
     else
       render :edit
     end
   end
 
-  def update
-    @program.update
-    redirect_to program_path(@program)
-  end
+
 
 
   private
@@ -54,6 +53,11 @@ class ProgramsController < ApplicationController
   def tags_search_params
     params.require(:program).permit([:name, :tags, :school])
   end
+
+  def find_program
+    @program = Program.find(params[:id])
+  end
+
 
 
 end

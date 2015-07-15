@@ -61,6 +61,15 @@ p {
   padding-left: 10px;
 }
 
+.school-description {
+  font-style: italic;
+  font-size: 16px;
+}
+
+.school-address {
+  font-size: 14px;
+}
+
 // ========================= Navigation! ===============================
 
 
@@ -135,7 +144,7 @@ p {
 .jumbotron-gold {
   background-color: #ffad00;
   width: 100%;
-  min-height: 780px;
+  min-height: 600px;
   padding: 1em;
 }
 
@@ -173,7 +182,6 @@ p {
   margin-right: 0px !important;
   background-color: #fff;
   position: relative;
-  z-index: -1;
   width: 100%;
 }
 
@@ -350,7 +358,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 }
 
 .feature-school {
-  height: inherit;
+  height: 375px;
   display: block;
   margin: 0 auto;
   margin-right: 10px;

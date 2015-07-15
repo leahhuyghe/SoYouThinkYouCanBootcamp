@@ -1,12 +1,12 @@
 class FaqController < ApplicationController
 
-def index
-  
-end
+  def index
 
-def show
+  end
 
-end
+  def show
+
+  end
 
 
 end

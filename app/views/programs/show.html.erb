@@ -1,0 +1,34 @@
+<%= render partial: 'layouts/nav' %>
+<div class="container">
+  <h2><%= @program.name %> </h2>
+  <div class="col-lg-6" style="padding-top: 100px;">
+    <p>
+      Price:
+      <%= @program.price %>
+    </p>
+    <p>
+      Duration:
+      <%= @program.duration_weeks %>
+    </p>
+    <p>
+      Format:
+      <%= @program.format %>
+    </p>
+    <p>
+      <% if @program.full_time == true %>
+      <% puts "Full Time" %>
+      <% elsif @program.full_time == false %>
+      <% puts "Part Time" %>
+      <% end %>
+
+      <%#= @program.full_time %>
+    </p>
+    <p>
+      Tags:
+      <%= @program.tag_ids %>
+    </p>
+  </div>
+</div>
+
+
+  <%= render partial: 'layouts/footer' %>
