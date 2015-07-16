@@ -19,6 +19,11 @@ gem 'devise'
 gem 'activeadmin', github: 'activeadmin'
 gem 'carrierwave', github:'carrierwaveuploader/carrierwave'
 gem 'mini_magick'
+gem 'animate-rails'
+gem 'friendly_id'
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'twitter'
 
 
 group :development, :test do

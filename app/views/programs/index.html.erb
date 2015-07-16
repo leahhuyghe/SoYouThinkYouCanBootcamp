@@ -3,12 +3,12 @@
 
 <div class="jumbotron-orange">
 
-  <h1>All Cohorts</h1>
+  <h1>All Programs</h1>
   <div class="col-md-4">
 
   </div>
   <div class="col-md-5 text-center">
-      <p>Not sure where you want to study? Maybe you're not sure what you'd like to learn. Browse our complete list of schools. You've got more options than you think!</p>
+      <p>Not sure where you want to study? Maybe you're not sure what you'd like to learn. Browse our complete list of programs. You've got more options than you think!</p>
   </div>
   <div class="col-md-4">
 
@@ -16,12 +16,36 @@
 
 </div>
 
+
 <div class="container">
-<% @program.each do |program| %>
-  <%= program.name %>
-  <%= program.duration_weeks %>
-  <%= program.price %>
-  <%= program.max_class_size %>
-  <%= program.full_time %>
-  <% end %>
+  <% @program.each do |program| %>
+  <div class="col-lg-6">
+    <h2><%= program.name %></h2>
+    <h4><%= program.school.name %></h4>
+    <div class="col-lg-6">
+      <p><%= program.duration_weeks %> weeks long</p>
+      <p>$<%= program.price %></p>
+      </div>
+      <div class="col-lg-6">
+        <p>Max Class Size:
+          <% if program.max_class_size == 0 %>
+            <%= 'None' %>
+          <% else %>
+            <%= program.max_class_size %>
+          <% end %></p>
+        <p>
+          Format:
+          <% if program.full_time == true %>
+            <%= 'Full Time' %>
+          <% else %>
+            <%= 'Part Time' %>
+          <% end %>
+        </p>
+      </div>
+
+
+  </div>
+<% end %>
 </div>
+
+<%= render partial: 'layouts/footer' %>

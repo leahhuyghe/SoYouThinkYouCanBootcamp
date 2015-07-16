@@ -1,70 +1,11 @@
 <%= render partial: 'layouts/nav' %>
-<div class="jumbotron-red" style="margin-top: 50px;">
 
-<div class="title">
-  <h2 style="margin-top: 10px;">Create a New Bootcamp Listing</h2>
-</div>
+  <div class="jumbotron-red" style="margin-top: 50px;">
 
+  <div class="title">
+    <h2 style="margin-top: 20px;">Create a New Bootcamp Listing</h2>
+  </div>
 
-<%= form_for @school do |f| %>
-<div class="col-md-4 col-xs-push-2">
-<table>
-  <tr>
-    <td><p><%= f.label :name %></p></td>
-    <td><%= f.text_field :name %></td>
-  </tr>
-  <tr>
-    <td><p><%= f.label :description %></p></td>
-    <td><%= f.text_area :description %></td>
-  </tr>
-  <tr>
-    <td><p><%= f.label :website %></p></td>
-    <td><%= f.text_field :website %></td>
-  </tr>
-  <tr>
-    <td><p><%= f.label :email %></p></td>
-    <td><%= f.text_field :email %></td>
-  </tr>
-  <tr>
-    <td><p><%= f.label :phone_number %></p></td>
-    <td><%= f.text_field :phone_number %></td>
-  </tr>
-</table>
-</div>
-<div class="col-md-4  col-xs-push-2">
-
-  <table>
-  <tr>
-    <td><p><%= f.label :street_address %></p></td>
-    <td><%= f.text_field :street_address %></td>
-  </tr>
-  <tr>
-    <td><p><%= f.label :city %></p></td>
-    <td><%= f.text_field :city %></td>
-  </tr>
-  <tr>
-    <td><p><%= f.label :country %></p></td>
-    <td><%= f.text_field :country %></td>
-  </tr>
-  <tr>
-    <td><p><%= f.label :postal_code %></p></td>
-    <td><%= f.text_field :postal_code %></td>
-  </tr>
-  <tr>
-    <td><p><%= f.label :facebook %></p></td>
-    <td><%= f.text_field :facebook %></td>
-  </tr>
-  <tr>
-    <td><p><%= f.label :twitter %></p></td>
-    <td><%= f.text_field :twitter %></td>
-  </tr>
-</table>
-</div>
-
-<div class="col-md-4  col-xs-push-2">
-<%= f.submit 'Create School', class: 'btn btn-default' %>
-</div>
-</div>
-<% end %>
+<%= render partial: 'form' %>
 
 <%= render partial: 'layouts/footer' %>

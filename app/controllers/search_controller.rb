@@ -6,11 +6,10 @@ class SearchController < ApplicationController
     elsif params[:tags_search]
       @results = Program.tags_search(params[:tags_search])
     end
-
   end
 
   def city_search_params
-    params.require(:school).permit([:name, :programs, :city])
+    params.require(:school).permit([:name, :city])
   end
 
   def tags_search_params

@@ -1,13 +1,13 @@
 <%= render partial: 'layouts/nav' %>
 
-<div class="jumbotron-orange">
+<div class="jumbotron-orange container-header">
 
-  <h1>All We've Got</h1>
+  <h1>Our Schools</h1>
   <div class="col-md-4">
 
   </div>
   <div class="col-md-5 text-center">
-      <p>Not sure where you want to study? Maybe you're not sure what you'd like to learn. Browse our complete list of schools. You've got more options than you think!</p>
+    <h4>Not sure where you want to study? Maybe you're not sure what you'd like to learn. Browse our complete list of schools. You've got more options than you think!</h4>
   </div>
   <div class="col-md-4">
 
@@ -16,28 +16,62 @@
 </div>
 
 <div class="container">
-  <% @schools.each do |school| %>
-    <div class="col-lg-6">
-      <h3><%= school.name %></h3>
-      <div class="col-lg-6">
-        <p class="school-description"><%= school.description %></p>
-      </div>
-      <div class="col-lg-6">
-        <div class="school-address">
-          <%= school.street_address %><br>
-          <%= school.city %>, <%= school.country %><br>
-          <%= school.phone_number %>
+  <% @schools.each_slice(2) do |schoolgroup| %>
+  <div class="row">
+    <% schoolgroup.each do |school| %>
+    <div class="col-md-6">
+      <h2><%= school.name %></h2>
+      <div class="row">
+        <div class="col-lg-6">
+          <p class="school-description"><%= school.description %></p>
         </div>
       </div>
+      <div class="row">
+      <div class="col-lg-6">
+        <div class="school-address">
 
-      <%= link_to ('<i class="fa fa-link fa-2x"></i>').html_safe, school.website  %>
-      <%= link_to ('<i class="fa fa-envelope-o fa-2x"></i>').html_safe, mailto:school.email  %>
-      <%= link_to ('<i class="fa fa-facebook fa-2x"></i>').html_safe, school.facebook  %>
-      <%= link_to ('<i class="fa fa-twitter fa-2x"></i>').html_safe, school.twitter  %>
+          <p>
+          <% if school.street_address == 'nil' || nil %>
+            <%= "" %>
+          <% else %>
+            <%= school.street_address %><br>
+          <% end %>
 
+          <% if school.city == 'nil' || nil %>
+            <%= "" %>
+          <% else %>
+            <%= school.city %>,
+          <% end %>
+
+          <% if school.country == 'nil' || nil %>
+            <%= "" %>
+          <% else %>
+            <%= school.country %>
+          <% end %><br>
+
+          <% if school.phone_number == 'nil' || nil %>
+            <%= "" %>
+          <% else %>
+            <%= school.phone_number %>
+          <% end %></p>
+
+
+
+          </div>
+          <div class="text-center">
+            <%= link_to ('<i class="fa fa-link fa-2x"></i>').html_safe, school.website  %>
+            <%= link_to ('<i class="fa fa-envelope-o fa-2x"></i>').html_safe, mailto:school.email  %>
+            <%= link_to ('<i class="fa fa-facebook fa-2x"></i>').html_safe, school.facebook  %>
+            <%= link_to ('<i class="fa fa-twitter fa-2x"></i>').html_safe, school.twitter  %>
+          </div>
+        </div>
+      </div>
     </div>
-  <% end %>
-</div>
 
 
-<%= render partial: 'layouts/footer' %>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+
+  <%= render partial: 'layouts/footer' %>

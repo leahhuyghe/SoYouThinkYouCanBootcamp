@@ -1,7 +1,43 @@
+  <div class="container-short">
+    <div class="col-lg-12">
+      <h2><%= school.name %></h2>
+      <div class="col-lg-6">
+        <p class="school-description"><%= school.description %></p>
+      </div>
+      <div class="col-lg-6">
+        <div class="school-address">
+          <p>
+          <% if school.street_address == 'nil' || nil %>
+            <%= "" %>
+          <% else %>
+            <%= school.street_address %><br>
+          <% end %>
 
-    <%#= school.avatar %>
-    <h3><%= school.name %></h3>
-    <h5><%= school.city %>,&nbsp;<%= school.country %></h5>
-    <p><%= school.description %></p>
-    <%= link_to image_tag("facey.png"), school.facebook %>
-    <%= link_to image_tag("twitterblack.png"), school.twitter %>
+          <% if school.city == 'nil' || nil %>
+            <%= "" %>
+          <% else %>
+            <%= school.city %>,
+          <% end %>
+
+          <% if school.country == 'nil' || nil %>
+            <%= "" %>
+          <% else %>
+            <%= school.country %>
+          <% end %><br>
+
+          <% if school.phone_number == 'nil' || nil %>
+            <%= "" %>
+          <% else %>
+            <%= school.phone_number %>
+          <% end %></p>
+
+        </div>
+        <div class="text-center">
+          <%= link_to ('<i class="fa fa-link fa-2x"></i>').html_safe, school.website  %>
+          <%= link_to ('<i class="fa fa-envelope-o fa-2x"></i>').html_safe, school.email  %>
+          <%= link_to ('<i class="fa fa-facebook fa-2x"></i>').html_safe, school.facebook  %>
+          <%= link_to ('<i class="fa fa-twitter fa-2x"></i>').html_safe, school.twitter  %>
+      </div>
+    </div>
+  </div>
+</div>

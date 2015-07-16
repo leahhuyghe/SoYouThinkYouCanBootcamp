@@ -1,0 +1,24 @@
+<p>
+<% if school.street_address == 'nil' || nil %>
+  <%= "" %>
+<% else %>
+  <%= school.street_address %><br>
+<% end %>
+
+<% if school.city == 'nil' || nil %>
+  <%= "" %>
+<% else %>
+  <%= school.city %>,
+<% end %>
+
+<% if school.country == 'nil' || nil %>
+  <%= "" %>
+<% else %>
+  <%= school.country %>
+<% end %><br>
+
+<% if school.phone_number == 'nil' || nil %>
+  <%= "" %>
+<% else %>
+  <%= school.phone_number %>
+<% end %></p>

@@ -61,9 +61,17 @@ p {
   padding-left: 10px;
 }
 
+.school {
+  min-height: 400px;
+  background-color: #ededed;
+  margin: 5px;
+  max-width: 45%;
+}
+
 .school-description {
   font-style: italic;
   font-size: 16px;
+  text-align: left;
 }
 
 .school-address {
@@ -116,6 +124,11 @@ p {
   min-height: 600px;
 }
 
+.container-header {
+  background-image: url(asset-path('macbook.jpg'));
+
+}
+
 .jumbotron-orange {
   background-color: #D4A16B;
   width: 100%;
@@ -128,11 +141,14 @@ p {
   width: 100%;
   min-height: 600px;
   padding: 1em;
+  color: #fff;
+
+  p {
+    color: #fff;
+  }
+
 }
 
-.jumbotron-red h1 {
-  color: #fff;
-}
 
 .jumbotron-blue {
   background-color: #37BCB3;
@@ -172,7 +188,7 @@ p {
 }
 
 .container {
-  width: 100%;
+  min-width: 100%;
   min-height: 500px;
   max-height: none;
   max-width: none;
@@ -182,7 +198,6 @@ p {
   margin-right: 0px !important;
   background-color: #fff;
   position: relative;
-  width: 100%;
 }
 
 
@@ -234,6 +249,9 @@ p {
   text-align: center;
 }
 
+table {
+  color: #333;
+}
 // ===  Navbar inverse ==
 
 
@@ -260,9 +278,9 @@ p {
   padding-top: 50px;
   color: #9d9d9d;
   background-color: #fff;
-  padding-right: 10px;
+  padding-right: 6px;
   font-family: 'Oswald';
-  font-size: 18px;
+  font-size: 14px;
 }
 .navbar-inverse .navbar-nav > li > a:hover,
 .navbar-inverse .navbar-nav > li > a:focus {
@@ -349,6 +367,20 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   color: #444;
 }
 
+.container-short {
+  // Inherits all properties of .container but with half the height.
+  min-width: 100%;
+  min-height: 250px;
+  max-height: none;
+  max-width: none;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+  background-color: #fff;
+  position: relative;
+}
+
 .container-fluid {
   padding-right: 15px;
   padding-left: 15px;
@@ -358,11 +390,14 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 }
 
 .feature-school {
-  height: 375px;
-  display: block;
-  margin: 0 auto;
-  margin-right: 10px;
-  margin-left: 10px;
+  height: 400px;
+  width: 20%;
+  background-color: #f0ead6;
+  border: 3px #D4A16B dotted;
+  border-radius: 5%;
+  vertical-align: baseline;
+  text-align: center;
+  margin-left: 80px;
 }
 
 .bootcamp-logo {
@@ -370,6 +405,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   height: 125px;
   display: block;
   margin: 0 auto;
+  margin-top: 20px;
 }
 
 .col-md-4 {

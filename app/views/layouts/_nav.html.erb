@@ -1,9 +1,10 @@
 
   <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color: #fff; top: 0; height: 110px;">
 
-      <div class="navbar-header navbar-brand">
-      <%= link_to image_tag('syt_logo.png'), root_path %>
+      <div class="navbar-header navbar-brand animated">
+      <%= link_to image_tag('syt_logo.png', :class => 'bounce'), root_path %>
       </div>
+
       <div>
         <ul class="nav navbar-nav">
           <li><span><i class="fa fa-search"></i>&nbsp;<a href="#find-bootcamp">Find a Bootcamp</a></span></li>
@@ -19,6 +20,7 @@
             <% else  %>
               <li><span><i class="fa fa-chevron-circle-up"></i>&nbsp;<%= link_to "Sign Up as a Bootcamp", new_user_registration_path %></span></li>
               <li><span><i class="fa fa-sign-in"></i>&nbsp;<%= link_to "Log in", new_user_session_path %></span></li>
+              <li><%= link_to "Sign Up with Twitter", user_omniauth_authorize_path(:twitter) %></li>
           </ul>
 
 

@@ -46,26 +46,26 @@
 
   <div class="jumbotron-red" id="find-bootcamp">
       <h1>FIND A BOOTCAMP</h1>
-       <div class="col-md-6 search" style="color: #fff;">
-        <h2>Find a Local School</h2>
-        <p>Where do you want to study?</p>
+       <div class="col-md-6 search">
+        <h2 style="color: #fff;">Find a Local School</h2>
+        <p style="color: #fff;">Where do you want to study?</p>
           <!-- I added method 'get' to the form tag because it was trying to create a school (and throw an error) when using post. -->
-        <%= form_tag(search_index_path, :method => "get", class: "") do %>
+        <%= form_tag(search_index_path, :method => "get") do %>
           <div class="search-form">
-            <%= select_tag :city_search,  options_from_collection_for_select(School.all, "id", "city"), placeholder: "eg. San Francisco", class: "chosen-select" %>
+            <%= select_tag :city_search, options_for_select(School.pluck("city").uniq), placeholder: "eg. San Francisco", class: "chosen-select" %>
           </div>
           <div>
             <!-- Added name nil to the submit because the search query was being tacked on to the slug, still doesnt work -->
-            <%= submit_tag "Search", :name => nil, class: "btn btn-default" %>
+            <%= submit_tag "Search", :name => nil, class: "btn btn-default animated pulse" %>
           </div>
         <% end %>
       </div>
 
-      <div class="col-md-6 search" style="color: #fff;">
-        <h2>Search by Subject</h2>
-        <p>What do you want to learn?</p>
+      <div class="col-md-6 search">
+        <h2 style="color: #fff;">Search by Subject</h2>
+        <p style="color: #fff;">What do you want to learn?</p>
         <!-- I added method 'get' to the form tag because it was trying to create a school (and throw an error) when using post. -->
-        <%= form_tag(search_index_path, :method => "get", class: "chosen-container-multi chosen-choices", id: "search-form") do %>
+        <%= form_tag(search_index_path, :method => "get") do %>
           <div class="search-form">
             <%= select_tag :tags_search,  options_from_collection_for_select(Tag.all, "id", "name"), placeholder: "eg. Rails", class: "chosen-select" %>
           </div>
@@ -78,29 +78,29 @@
       </div>
   </div>
 
-  <div class="jumbotron-gold" id="featured-schools">
-    <h2>Featured Schools</h2>
-      <div class="well feature-school col-md-4">
-        <%= image_tag('codecore_bootcamp_logo.jpg',
+  <div class="jumbotron-gold row" id="featured-schools">
+    <h2>Feature Schools</h2>
+      <div class="feature-school col-md-3">
+        <%= image_tag('codecore_bootcamp_logo.png',
             :class => 'bootcamp-logo') %>
           <h4><%= School.find(1).name %></h4>
           <h5><%= School.find(1).city %>,&nbsp;<%= School.find(1).country %></h5>
           <p><%= School.find(1).description %></p>
       </div>
 
-      <div class="well feature-school col-md-4">
+      <div class="feature-school col-md-3">
         <%= image_tag('codefellows.png',
             :class => 'bootcamp-logo') %>
             <h4><%= School.find(4).name %></h4>
-            <h5><%= School.find(4).city %>,&nbsp;<%= School.find(1).country %></h5>
+            <h5><%= School.find(4).city %>,&nbsp;<%= School.find(4).country %></h5>
             <p><%= School.find(4).description %></p>
       </div>
 
-      <div class="well feature-school col-md-4">
+      <div class="feature-school col-md-3">
         <%= image_tag('bloc-io-logo.png',
             :class => 'bootcamp-logo') %>
             <h4><%= School.find(3).name %></h4>
-            <h5><%= School.find(3).city %>,&nbsp;<%= School.find(1).country %></h5>
+            <h5><%= School.find(3).city %>,&nbsp;<%= School.find(3).country %></h5>
             <p><%= School.find(3).description %></p>
       </div>
     </div>

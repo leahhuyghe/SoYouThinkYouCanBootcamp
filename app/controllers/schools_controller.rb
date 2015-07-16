@@ -3,7 +3,6 @@ before_action :authenticate_user!
 #mount_uploaders :avatars, AvatarUploader
 
 
-
   def index
     if params[:city_search]
       @schools = School.search(params[:city_search])
@@ -22,24 +21,31 @@ before_action :authenticate_user!
     @school.user = current_user
     if @school.save
       redirect_to school_path(@school)
+
+      format.html { redirect_to school_path(@school), notice: "School created" }
+      format.js   { render  } # this renders: create.js.erb
     else
-      render :new
+      format.html { render "/schools/show" }
+      format.js   { render js: "alert('failure');"}
     end
 
   end
 
   def edit
-    
+
+  end
+
+  def destroy
+
   end
 
 
 
-
- # scope :for_city, -> (city) {where (city: city)}
 #is the same as below
   def show
+  # scope :for_city, -> (city) {where (city: city)}
     School.for_city(params[:city])
-    @school = School.find params[:id]
+    @school = School.friendly.find params[:id]
   end
 
 private
@@ -55,6 +61,11 @@ private
   def tags_search_params
     params.require(:program).permit([:name, :tags, :school])
   end
+
+  def for_city
+    params.require(:school).permit([:city])
+  end
+
 
 
 end
