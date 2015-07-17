@@ -32,20 +32,14 @@ before_action :authenticate_user!
   end
 
   def edit
-
+    redirect_to root_path, alert: "access denied" unless can? :edit, @school
   end
 
   def destroy
-
   end
 
-
-
-#is the same as below
   def show
-  # scope :for_city, -> (city) {where (city: city)}
-    School.for_city(params[:city])
-    @school = School.friendly.find params[:id]
+    @school = School.find(params[:id])
   end
 
 private
@@ -62,9 +56,6 @@ private
     params.require(:program).permit([:name, :tags, :school])
   end
 
-  def for_city
-    params.require(:school).permit([:city])
-  end
 
 
 

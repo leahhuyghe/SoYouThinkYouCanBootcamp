@@ -1,51 +1,71 @@
 
 <%= render partial: 'layouts/nav' %>
 
-<div class="jumbotron-orange">
+<div class="jumbotron-orange container-header-programs">
 
-  <h1>All Programs</h1>
+  <h1 style="color: #fff; margin-top: 50px;">All Programs</h1>
   <div class="col-md-4">
 
   </div>
-  <div class="col-md-5 text-center">
-      <p>Not sure where you want to study? Maybe you're not sure what you'd like to learn. Browse our complete list of programs. You've got more options than you think!</p>
+  <div class="col-md-5 text-center" style="color: #fff;">
+    <p>Not sure where you want to study? Maybe you're not sure what you'd like to learn. Browse our complete list of programs. You've got more options than you think!</p>
   </div>
   <div class="col-md-4">
 
   </div>
-
 </div>
-
 
 <div class="container">
-  <% @program.each do |program| %>
-  <div class="col-lg-6">
-    <h2><%= program.name %></h2>
-    <h4><%= program.school.name %></h4>
-    <div class="col-lg-6">
-      <p><%= program.duration_weeks %> weeks long</p>
-      <p>$<%= program.price %></p>
+    <% @program.each do |program| %>
+  <div class="col-lg-6" style="padding-top: 70px;">
+    <div class="school-show">
+      <h2 style="margin-top: 50px; color: #fff; text-shadow: 2px 2px 5px rgba(150, 150, 150, 1);">
+        <%= program.name %> </h2>
+      <h3><%= link_to program.school.name, school_path(program) %></h3>
+
+      <div class="col-md-6 col-md-push-3">
+        <span>
+          <p><i class="fa fa-money fa-2x"></i>&nbsp;&nbsp;&nbsp;$<%= program.price %>
+            <i class="fa fa-calendar fa-2x"></i>&nbsp;&nbsp;&nbsp;<%= program.duration_weeks %> weeks</p>
+          </span>
+
+          <span>
+            <p>
+              <i class="fa fa-desktop fa-2x"></i>&nbsp;&nbsp;&nbsp;
+              <%= program.format %>
+            </p>
+            <p><i class="fa fa-users"></i>&nbsp;&nbsp;&nbsp;Max Class Size:
+              <% if program.max_class_size == 0 || nil %>
+              <%= "" %>
+              <% else %>
+              <%= program.max_class_size %>
+              <% end %></p>
+              <p>
+                <i class="fa fa-clock-o fa-2x"></i>
+                &nbsp;&nbsp;&nbsp;
+                <% if program.full_time == true || "true" || "TRUE" %>
+                <%= "Full Time" %>
+                <% elsif program.full_time == false %>
+                <%="Part Time" %>
+                <% end %>
+              </p>
+            </span>
+
+            <span>
+              <%= link_to ('<i class="fa fa-link fa-2x"></i>').html_safe, program.school.website %>
+              <%= link_to ('<i class="fa fa-envelope-o fa-2x"></i>').html_safe, "mailto:#{program.school.email}"  %>
+              <%= link_to ('<i class="fa fa-facebook fa-2x"></i>').html_safe, program.school.facebook  %>
+              <%= link_to ('<i class="fa fa-twitter fa-2x"></i>').html_safe, program.school.twitter  %>
+
+
+            </span>
+
+
+
+          </div>
+        </div>
       </div>
-      <div class="col-lg-6">
-        <p>Max Class Size:
-          <% if program.max_class_size == 0 %>
-            <%= 'None' %>
-          <% else %>
-            <%= program.max_class_size %>
-          <% end %></p>
-        <p>
-          Format:
-          <% if program.full_time == true %>
-            <%= 'Full Time' %>
-          <% else %>
-            <%= 'Part Time' %>
-          <% end %>
-        </p>
-      </div>
+      <% end %>
+    </div>
 
-
-  </div>
-<% end %>
-</div>
-
-<%= render partial: 'layouts/footer' %>
+        <%= render partial: 'layouts/footer' %>

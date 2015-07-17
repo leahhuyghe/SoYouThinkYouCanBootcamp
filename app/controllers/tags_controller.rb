@@ -1,10 +1,8 @@
 class TagsController < ApplicationController
 
-  belongs_to :programs through: :tagging
-  has_many :programs
 
   def show
-    @tag = Tag.find
+    @tag = Tag.find(params[:id])
   end
 
   def new

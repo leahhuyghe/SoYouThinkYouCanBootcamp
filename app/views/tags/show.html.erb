@@ -1,9 +1,9 @@
 <h2><%= @tag.name %></h2>
 <p>
-  There are <%= @programs.length %> programs that match <%= @tag.name %>
+  There are <%= @tag.programs.length %> programs that match <%= @tag.name %>
 </p>
 <div>
-  <%= @programs.each do |program| %>
-  <%= link_to program.name, program(program) %>
+  <%= @tag.programs.each do |program| %>
+  <%= link_to program.name, program_path %>
 </div>
-<%= end %>
+<% end %>

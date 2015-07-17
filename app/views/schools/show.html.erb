@@ -1,3 +1,23 @@
-<h1>
-  Schools#show
-</h1>
+<%= render partial: 'layouts/nav' %>
+<div class="container">
+  <div class="col-lg-6" style="padding-top: 70px;">
+    <div class="school-show">
+      <h2 style="margin-top: 50px; color: #fff; text-shadow: 2px 2px 5px rgba(150, 150, 150, 1);"><%= @school.name %> </h2>
+
+      <div class="col-md-6 col-md-push-3">
+        <span>
+          <p><%= @school.programs.map(&:name).join(", ") %></p>
+        </span>
+
+        <span>
+          <%= link_to ('<i class="fa fa-link fa-2x"></i>').html_safe, @school.website %>
+          <%= link_to ('<i class="fa fa-envelope-o fa-2x"></i>').html_safe, "mailto:#{@school.email}"  %>
+          <%= link_to ('<i class="fa fa-facebook fa-2x"></i>').html_safe, @school.facebook  %>
+          <%= link_to ('<i class="fa fa-twitter fa-2x"></i>').html_safe, @school.twitter  %>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= render partial: 'layouts/footer' %>

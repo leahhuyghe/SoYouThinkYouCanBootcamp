@@ -12,8 +12,19 @@ class UsersController < ApplicationController
     else
       render :new
     end
-
   end
+
+  # def edit
+  #     @user = current_user
+  # end
+  #
+  # def update
+  #   @user = current_user
+  #   if @user.update user_params
+  #     redirect_to edit_users_path, notice:
+  # end
+
+
 
 private
 

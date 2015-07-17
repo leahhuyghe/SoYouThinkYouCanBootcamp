@@ -16,7 +16,7 @@ class Tagging < ActiveRecord::Base
   private
 
   def tagging_params
-        params.require(:tagging).permit([:tag_id, :program_id,])
+    params.require(:tagging).permit([:tag_id, :program_id,])
   end
 
 end

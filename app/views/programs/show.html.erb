@@ -1,34 +1,59 @@
 <%= render partial: 'layouts/nav' %>
 <div class="container">
-  <h2><%= @program.name %> </h2>
-  <div class="col-lg-6" style="padding-top: 100px;">
-    <p>
-      Price:
-      <%= @program.price %>
-    </p>
-    <p>
-      Duration:
-      <%= @program.duration_weeks %>
-    </p>
-    <p>
-      Format:
-      <%= @program.format %>
-    </p>
-    <p>
-      <% if @program.full_time == true %>
-      <% puts "Full Time" %>
-      <% elsif @program.full_time == false %>
-      <% puts "Part Time" %>
-      <% end %>
+  <div class="col-lg-6" style="padding-top: 70px;">
+    <div class="school-show">
+      <h2 style="margin-top: 50px; color: #fff; text-shadow: 2px 2px 5px rgba(150, 150, 150, 1);"><%= @program.name %> </h2>
+      <h4><%= link_to @program.school.name, school_path %></h4>
 
-      <%#= @program.full_time %>
-    </p>
-    <p>
-      Tags:
-      <%= @program.tag_ids %>
-    </p>
+      <div class="col-md-6 col-md-push-3">
+        <span>
+          <p><i class="fa fa-money fa-2x"></i>&nbsp;&nbsp;&nbsp;$<%= @program.price %>
+            <i class="fa fa-calendar fa-2x"></i>&nbsp;&nbsp;&nbsp;<%= @program.duration_weeks %> weeks</p>
+          </span>
+
+          <span>
+            <p>
+              <i class="fa fa-desktop fa-2x"></i>&nbsp;&nbsp;&nbsp;
+              <%= @program.format %>
+
+              <i class="fa fa-clock-o fa-2x"></i>
+              &nbsp;&nbsp;&nbsp;
+              <% if @program.full_time == true || "true" || "TRUE" %>
+              <%= "Full Time" %>
+              <% elsif @program.full_time == false %>
+              <%="Part Time" %>
+              <% end %>
+            </p>
+          </span>
+
+          <span>
+            <i class="fa fa-puzzle-piece fa-4x text-center"></i>
+            <p>
+
+              <% @program.tags.each do |tag| %>
+              <%= link_to tag.name, tag %>
+              <% end %>
+
+              <!-- <%#= @program.tags.map(&:name).join(", ") %>
+              <%# TODO: make the map of tags lin  k_tos to go to a show page that searches for programs of that tag. %> -->
+            </p>
+          </span>
+
+
+          <span>
+            <%= link_to ('<i class="fa fa-link fa-2x"></i>').html_safe, @program.school.website %>
+            <%= link_to ('<i class="fa fa-envelope-o fa-2x"></i>').html_safe, "mailto:#{@program.school.email}"  %>
+            <%= link_to ('<i class="fa fa-facebook fa-2x"></i>').html_safe, @program.school.facebook  %>
+            <%= link_to ('<i class="fa fa-twitter fa-2x"></i>').html_safe, @program.school.twitter  %>
+
+
+          </span>
+
+        </div>
+
+
+      </div>
+    </div>
   </div>
-</div>
-
 
   <%= render partial: 'layouts/footer' %>

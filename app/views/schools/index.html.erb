@@ -1,6 +1,6 @@
 <%= render partial: 'layouts/nav' %>
 
-<div class="jumbotron-orange container-header">
+<div class="jumbotron-orange container-header-schools">
 
   <h1>Our Schools</h1>
   <div class="col-md-4">
@@ -60,9 +60,11 @@
           </div>
           <div class="text-center">
             <%= link_to ('<i class="fa fa-link fa-2x"></i>').html_safe, school.website  %>
-            <%= link_to ('<i class="fa fa-envelope-o fa-2x"></i>').html_safe, mailto:school.email  %>
+            <%= link_to ('<i class="fa fa-envelope-o fa-2x"></i>').html_safe, "mailto:#{school.email}"  %>
+
             <%= link_to ('<i class="fa fa-facebook fa-2x"></i>').html_safe, school.facebook  %>
             <%= link_to ('<i class="fa fa-twitter fa-2x"></i>').html_safe, school.twitter  %>
+
           </div>
         </div>
       </div>

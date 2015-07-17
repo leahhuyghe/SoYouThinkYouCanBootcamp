@@ -26,7 +26,7 @@ class ProgramsController < ApplicationController
   end
 
   def show
-    @program = Program.new
+    @program = Program.find(params[:id])
   end
 
   def edit
@@ -41,13 +41,13 @@ class ProgramsController < ApplicationController
     end
   end
 
-
-
+  def destroy
+  end
 
   private
 
   def program_params
-      params.require(:program).permit([:school_id, :name, :duration_weeks, :price, :max_class_size, :full_time, :format])
+    params.require(:program).permit([:school_id, :name, :duration_weeks, :price, :max_class_size, :full_time, :format, {tag_ids: []} ])
   end
 
   def tags_search_params

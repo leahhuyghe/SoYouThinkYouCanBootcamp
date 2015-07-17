@@ -21,8 +21,9 @@ Rails.application.routes.draw do
   resources :callbacks
 
   resources :schools do
-    resources :programs, only: [:create, :destroy]
+    resources :programs, only: [:create, :destroy, :show, :update]
   end
+
   resources :programs
   resources :tags, only: [:show]
   resources :faq

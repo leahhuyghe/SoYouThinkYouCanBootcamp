@@ -3,32 +3,37 @@
 
     <div class="add-program">
       <p>
-      Program Name: <%= f.text_field :name %>
+      <i class="fa fa-terminal fa-2x"></i>&nbsp;&nbsp;&nbsp;Program Name: <%= f.text_field :name %>
       </p>
     </div>
     <div class="add-program">
       <p>
-        Tuition Price (no decimals, please): <%= f.number_field :price %>
+        <i class="fa fa-money fa-2x"></i>&nbsp;&nbsp;&nbsp;Tuition Price: <%= f.number_field :price %>
       </p>
     </div>
     <div class="add-program">
       <p>
-        Duration (in weeks): <%= f.number_field :duration_weeks %>
+        <i class="fa fa-calendar fa-2x"></i>&nbsp;&nbsp;&nbsp;Duration (in weeks): <%= f.number_field :duration_weeks %>
       </p>
     </div>
     <div class="add-program">
       <p>
-        Is this program full time? <%= f.check_box :full_time %>
+        <i class="fa fa-clock-o fa-2x"></i>&nbsp;&nbsp;&nbsp;Is this program full time? <%= f.check_box :full_time %>
       </p>
     </div>
     <div class="add-program">
       <p>
-        Is this program in-person, online, or hybrid (both)<%= f.text_field :format %>
+        <i class="fa fa-desktop fa-2x"></i>&nbsp;&nbsp;&nbsp;Is this program in-person, online, or hybrid (both)<%= f.text_field :format %>
       </p>
     </div>
     <div class="add-program">
       <p>
-        Which skills are taught in this program? <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name %>
+        <i class="fa fa-users fa-2x"></i>&nbsp;&nbsp;&nbsp;How many students can enroll for this program? <%= f.text_field :max_class_size %>
+      </p>
+    </div>
+    <div class="add-program">
+      <p>
+        <i class="fa fa-puzzle-piece fa-2x"></i>&nbsp;&nbsp;&nbsp;Which skills are taught in this program? <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name %>
       </p>
         <%= f.submit "Submit", class: "btn btn-default" %>
     </div>
