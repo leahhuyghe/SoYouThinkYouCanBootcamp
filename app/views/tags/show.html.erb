@@ -1,9 +1,26 @@
-<h2><%= @tag.name %></h2>
-<p>
-  There are <%= @tag.programs.length %> programs that match <%= @tag.name %>
-</p>
-<div>
-  <%= @tag.programs.each do |program| %>
-  <%= link_to program.name, program_path %>
+<%= render partial: 'layouts/nav' %>
+<div class="container" style="padding-top: 50px;">
+  <div class="alert alert-success" role="alert" style="margin-top: 50px;">
+    <p>
+    <% if @tag.programs.length == 1 %>
+      There <%= @tag.programs.length %> is program that matches <%=  @tag.name %>
+    <% else %>
+    There's <%= @tag.programs.length %> programs that match <%= @tag.name %>
+    <% end %>
+    </p>
+  </div>
+
+  <div class="col-lg-6" style="padding-top: 70px;">
+    <h1>So You Think You Can <%= @tag.name %>?</h1>
+    <div class="school-show">
+        <% @tag.programs.each do |program| %>
+        <h5 style="margin-top: 50px; color: #fff; text-shadow: 2px 2px 5px rgba(150, 150, 150, 1);"><%= link_to program.name, program_path %></h5>
+        <p>
+          at <%= program.tag %>
+        </p>
+      <% end %>
+    </div>
+  </div>
 </div>
-<% end %>
+
+<%= render partial: 'layouts/footer' %>

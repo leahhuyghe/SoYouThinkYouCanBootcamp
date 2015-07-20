@@ -24,7 +24,8 @@ gem 'friendly_id'
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'twitter'
-
+gem 'gmaps4rails'
+gem 'geocoder'
 
 group :development, :test do
   gem 'interactive_editor'

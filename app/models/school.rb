@@ -1,5 +1,8 @@
 class School < ActiveRecord::Base
 
+  geocoded_by :address, :city, :country
+  after_validation :geocode
+
   validates :city, presence: true
   validates :name, presence: true
   validates :description, presence: true

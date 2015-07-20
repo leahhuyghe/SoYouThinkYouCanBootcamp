@@ -15,13 +15,14 @@
   </div>
 </div>
 
-<div class="container">
+<div class="container concrete">
     <% @program.each do |program| %>
   <div class="col-lg-6" style="padding-top: 70px;">
     <div class="school-show">
       <h2 style="margin-top: 50px; color: #fff; text-shadow: 2px 2px 5px rgba(150, 150, 150, 1);">
         <%= program.name %> </h2>
-      <h3><%= link_to program.school.name, school_path(program) %></h3>
+        <!-- This is necessary to avoid the default of rails passing an id. We don't want to ask for the ID of the school that is the same as the program.  -->
+      <h3><%= link_to program.school.name, school_path(program_id: program.id, id: "school") %></h3>
 
       <div class="col-md-6 col-md-push-3">
         <span>
@@ -34,11 +35,11 @@
               <i class="fa fa-desktop fa-2x"></i>&nbsp;&nbsp;&nbsp;
               <%= program.format %>
             </p>
-            <p><i class="fa fa-users"></i>&nbsp;&nbsp;&nbsp;Max Class Size:
-              <% if program.max_class_size == 0 || nil %>
+            <p>
+              <% if program.max_class_size == 0 || nil || "" %>
               <%= "" %>
               <% else %>
-              <%= program.max_class_size %>
+              <i class="fa fa-users"></i>&nbsp;&nbsp;&nbsp;Max Class Size:<%= program.max_class_size %>
               <% end %></p>
               <p>
                 <i class="fa fa-clock-o fa-2x"></i>

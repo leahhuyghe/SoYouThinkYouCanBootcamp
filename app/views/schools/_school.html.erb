@@ -4,10 +4,10 @@
 <div class="school-show">
 
   <div class="col-lg-8 col-md-push-2">
-    <h2 style="margin-top: 50px; color: #fff; text-shadow: 2px 2px 5px rgba(150, 150, 150, 1);"><%= school.name %> </h2>
+    <h2 style="margin-top: 20px; color: #fff; text-shadow: 2px 2px 5px rgba(150, 150, 150, 1);"><%= school.name %> </h2>
 
     <div class="row">
-      <h4>Programs:</h4><p><b><%= school.programs.map(&:name).join(", ") %></b></p>
+      <h4>Programs:</h4><p><%= school.programs.map(&:name).join(", ") %></p>
     </div>
 
     <hr style="

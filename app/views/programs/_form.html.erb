@@ -1,41 +1,49 @@
 
   <%= form_for @program do |f| %>
 
-    <div class="add-program">
-      <p>
-      <i class="fa fa-terminal fa-2x"></i>&nbsp;&nbsp;&nbsp;Program Name: <%= f.text_field :name %>
-      </p>
-    </div>
-    <div class="add-program">
-      <p>
-        <i class="fa fa-money fa-2x"></i>&nbsp;&nbsp;&nbsp;Tuition Price: <%= f.number_field :price %>
-      </p>
-    </div>
-    <div class="add-program">
-      <p>
-        <i class="fa fa-calendar fa-2x"></i>&nbsp;&nbsp;&nbsp;Duration (in weeks): <%= f.number_field :duration_weeks %>
-      </p>
-    </div>
-    <div class="add-program">
-      <p>
-        <i class="fa fa-clock-o fa-2x"></i>&nbsp;&nbsp;&nbsp;Is this program full time? <%= f.check_box :full_time %>
-      </p>
-    </div>
-    <div class="add-program">
-      <p>
-        <i class="fa fa-desktop fa-2x"></i>&nbsp;&nbsp;&nbsp;Is this program in-person, online, or hybrid (both)<%= f.text_field :format %>
-      </p>
-    </div>
-    <div class="add-program">
-      <p>
-        <i class="fa fa-users fa-2x"></i>&nbsp;&nbsp;&nbsp;How many students can enroll for this program? <%= f.text_field :max_class_size %>
-      </p>
-    </div>
-    <div class="add-program">
-      <p>
-        <i class="fa fa-puzzle-piece fa-2x"></i>&nbsp;&nbsp;&nbsp;Which skills are taught in this program? <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name %>
-      </p>
-        <%= f.submit "Submit", class: "btn btn-default" %>
-    </div>
+<div class="form-show">
+  <div class="add-program">
+    <p>
+    <i class="fa fa-terminal fa-2x"></i>&nbsp;&nbsp;&nbsp;Program Name: <%= f.text_field :name %>
+    </p>
+  </div>
+  <div class="add-program">
+    <p>
+      <i class="fa fa-money fa-2x"></i>&nbsp;&nbsp;&nbsp;Tuition Price: <%= f.number_field :price %>
+    </p>
+  </div>
+  <div class="add-program">
+    <p>
+      <i class="fa fa-calendar fa-2x"></i>&nbsp;&nbsp;&nbsp;Duration (in weeks):&nbsp; <%= f.number_field :duration_weeks %>
+    </p>
+  </div>
+  <div class="add-program">
+    <p>
+      <i class="fa fa-clock-o fa-2x"></i>&nbsp;&nbsp;&nbsp;Is this program full time?&nbsp; <%= f.check_box :full_time %>
+    </p>
+  </div>
+  <div class="add-program">
+    <p>
+      <i class="fa fa-desktop fa-2x"></i>&nbsp;&nbsp;&nbsp;Is this program in-person, online, or hybrid (both)?&nbsp;<%= f.text_field :format %>
+    </p>
+  </div>
+  <div class="add-program">
+    <p>
+      <i class="fa fa-users fa-2x"></i>&nbsp;&nbsp;&nbsp;How many students can enroll for this program?&nbsp; <%= f.text_field :max_class_size %>
+    </p>
+  </div>
+  <div class="add-program">
+    <p>
+      <i class="fa fa-puzzle-piece fa-2x"></i>&nbsp;&nbsp;&nbsp;Which skills are taught in this program?&nbsp; </p>
+      <div class="chosen-container chosen-container-multi">
+        <%= f.collection_select :tag_ids, Tag.all, :id, :name, class: "chosen-container chosen-container-multi chosen-with-drop chosen-container-active chosen-select" %>
+      </div>
+
+
+      <%= f.submit "Submit", class: "btn btn-default" %>
+  </div>
+</div>
+
+
 
 <% end %>

@@ -1,0 +1,43 @@
+
+
+<script type="text/javascript">
+handler = Gmaps.build('Google');
+handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+markers = handler.addMarkers([
+  {
+    "lat": 0,
+    "lng": 0,
+    "picture": {
+      "url": "mapicon.png",
+      "width":  36,
+      "height": 36
+    },
+    "infowindow": "Hello World!"
+  }
+]);
+handler.bounds.extendWith(markers);
+handler.fitMapToBounds();
+});
+
+
+var marker;
+function createMarker(coords, map, title){
+  marker = new google.maps.Marker({
+    position: coords,
+    map: map,
+    title: title
+  });
+}
+</script>
+
+
+
+<div class="container">
+  <div style='width: 500px;'>
+    <div id="map-container" style='width: 500px; height: 500px;'>
+      <div id="map-canvas"></div>
+      markers = handler.addMarkers(<%=raw @hash.to_json %>);
+    </div>
+  </div>
+
+</div>

@@ -19,11 +19,14 @@ Rails.application.routes.draw do
   resources :users
   resources :devise
   resources :callbacks
-
+  resources :maps
+  
   resources :schools do
     resources :programs, only: [:create, :destroy, :show, :update]
   end
 
+  # resources :admin
+  # resources :profiles
   resources :programs
   resources :tags, only: [:show]
   resources :faq

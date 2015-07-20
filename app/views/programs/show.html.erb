@@ -31,7 +31,7 @@
             <p>
 
               <% @program.tags.each do |tag| %>
-              <%= link_to tag.name, tag %>
+              <%= link_to tag.name, tag %>,&nbsp;
               <% end %>
 
               <!-- <%#= @program.tags.map(&:name).join(", ") %>

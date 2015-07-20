@@ -17,6 +17,7 @@
             <% if current_user %>
             <li><%= link_to "Log out", destroy_user_session_path %></li>
             <li><%= link_to "List your Bootcamp", new_school_path %></li>
+            <li><%= link_to "List a Program", new_program_path %></li>
             <% else  %>
               <li><span><i class="fa fa-chevron-circle-up"></i>&nbsp;<%= link_to "Sign Up as a Bootcamp", new_user_registration_path %></span></li>
               <li><span><i class="fa fa-sign-in"></i>&nbsp;<%= link_to "Log in", new_user_session_path %></span></li>

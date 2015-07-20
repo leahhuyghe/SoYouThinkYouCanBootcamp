@@ -12,64 +12,76 @@
   <div class="col-md-4">
 
   </div>
-
 </div>
 
-<div class="container">
+<div class="container concrete">
   <% @schools.each_slice(2) do |schoolgroup| %>
   <div class="row">
     <% schoolgroup.each do |school| %>
-    <div class="col-md-6">
-      <h2><%= school.name %></h2>
+    <div class="col-md-6" style="padding-top: 50px;">
+      <div class="school-show">
+      <h2 style="margin-top: 20px; color: #fff; text-shadow: 2px 2px 5px rgba(150, 150, 150, 1);">
+        <%= school.name %></h2>
       <div class="row">
-        <div class="col-lg-6">
+      <div class="col-md-6 col-md-push-3">
           <p class="school-description"><%= school.description %></p>
+
+          <hr style="
+          border: 0;
+          height: 2px;
+          background: #333;
+          background-image: linear-gradient(to right, #ffad00, #fff, #ffad00);">
+
+          <div class="row">
+            <div class="school-address text-center">
+              <p>
+              <% if school.street_address == 'nil' || nil %>
+                <%= "" %>
+              <% else %>
+                <%= school.street_address %><br>
+              <% end %>
+              <% if school.city == 'nil' || nil %>
+                <%= "" %>
+              <% else %>
+                <%= school.city %>,
+              <% end %>
+              <% if school.country == 'nil' || nil %>
+                <%= "" %>
+              <% else %>
+                <%= school.country %>
+              <% end %><br>
+              <% if school.phone_number == 'nil' || nil %>
+                <%= "" %>
+              <% else %>
+                <%= school.phone_number %>
+              <% end %></p>
+
+
+              <hr style="
+              border: 0;
+              height: 2px;
+              background: #333;
+              background-image: linear-gradient(to right, #ffad00, #fff, #ffad00);">
+
+              <p>
+                <%= link_to ('<i class="fa fa-link fa-2x"></i>').html_safe, school.website  %>
+                <%= link_to ('<i class="fa fa-envelope-o fa-2x"></i>').html_safe, "mailto:#{school.email}"  %>
+
+                <%= link_to ('<i class="fa fa-facebook fa-2x"></i>').html_safe, school.facebook  %>
+                <%= link_to ('<i class="fa fa-twitter fa-2x"></i>').html_safe, school.twitter  %>
+              </p>
+
+
+
+
+            </div>
+          </div>
+
         </div>
       </div>
-      <div class="row">
-      <div class="col-lg-6">
-        <div class="school-address">
 
-          <p>
-          <% if school.street_address == 'nil' || nil %>
-            <%= "" %>
-          <% else %>
-            <%= school.street_address %><br>
-          <% end %>
-
-          <% if school.city == 'nil' || nil %>
-            <%= "" %>
-          <% else %>
-            <%= school.city %>,
-          <% end %>
-
-          <% if school.country == 'nil' || nil %>
-            <%= "" %>
-          <% else %>
-            <%= school.country %>
-          <% end %><br>
-
-          <% if school.phone_number == 'nil' || nil %>
-            <%= "" %>
-          <% else %>
-            <%= school.phone_number %>
-          <% end %></p>
-
-
-
-          </div>
-          <div class="text-center">
-            <%= link_to ('<i class="fa fa-link fa-2x"></i>').html_safe, school.website  %>
-            <%= link_to ('<i class="fa fa-envelope-o fa-2x"></i>').html_safe, "mailto:#{school.email}"  %>
-
-            <%= link_to ('<i class="fa fa-facebook fa-2x"></i>').html_safe, school.facebook  %>
-            <%= link_to ('<i class="fa fa-twitter fa-2x"></i>').html_safe, school.twitter  %>
-
-          </div>
-        </div>
-      </div>
     </div>
-
+</div>
 
       <% end %>
     </div>

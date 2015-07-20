@@ -14,16 +14,23 @@ class UsersController < ApplicationController
     end
   end
 
-  # def edit
-  #     @user = current_user
-  # end
-  #
-  # def update
-  #   @user = current_user
-  #   if @user.update user_params
-  #     redirect_to edit_users_path, notice:
-  # end
+  def show
+    @user = current_user
+  end
 
+
+  def edit
+    @user = current_user
+  end
+
+  def update
+    @user = current_user
+    if @user.update user_params
+      redirect_to edit_users_path, notice: "Updated!"
+    else
+      redirect_to root_path, notice: "Failed to upadted"
+    end
+  end
 
 
 private

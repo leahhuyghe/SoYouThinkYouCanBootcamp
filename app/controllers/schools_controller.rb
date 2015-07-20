@@ -9,7 +9,14 @@ before_action :authenticate_user!
     else
       @schools = School.all
     end
+
+      @schools = School.all
+      @hash = Gmaps4rails.build_markers(@schools) do |school, marker|
+      marker.lat school.latitude
+      marker.lng school.longitude
+    end
   end
+
 
 
   def new
@@ -20,10 +27,12 @@ before_action :authenticate_user!
     @school = School.new(school_params)
     @school.user = current_user
     if @school.save
-      redirect_to school_path(@school)
+      redirect_to school_path(@school), notice: "School created"
 
-      format.html { redirect_to school_path(@school), notice: "School created" }
-      format.js   { render  } # this renders: create.js.erb
+      # format.html { redirect_to school_path(@school), notice: "School created" }
+      # format.js   { render  } # this renders: create.js.erb
+
+
     else
       format.html { render "/schools/show" }
       format.js   { render js: "alert('failure');"}
@@ -39,7 +48,12 @@ before_action :authenticate_user!
   end
 
   def show
-    @school = School.find(params[:id])
+    if params[:program_id]
+      @program = Program.find(params[:program_id])
+      @school = @program.school
+    else
+      @school = School.find(params[:id])
+    end
   end
 
 private
