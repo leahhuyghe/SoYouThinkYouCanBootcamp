@@ -30,7 +30,7 @@ class ProgramsController < ApplicationController
   end
 
   def edit
-    redirect_to root_path, alert: "access denied" unless can? :edit, @program
+    redirect_to root_path, alert: "Access denied." unless can? :edit, @program
   end
 
   def update

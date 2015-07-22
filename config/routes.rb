@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   resources :devise
   resources :callbacks
   resources :maps
-  
+
   resources :schools do
     resources :programs, only: [:create, :destroy, :show, :update]
   end
@@ -28,6 +28,9 @@ Rails.application.routes.draw do
   # resources :admin
   # resources :profiles
   resources :programs
+
+  get '/programs/:id/edit' =>'programs#edit'
+
   resources :tags, only: [:show]
   resources :faq
   resources :search, only: :index

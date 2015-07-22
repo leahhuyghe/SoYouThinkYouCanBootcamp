@@ -5,8 +5,8 @@ handler = Gmaps.build('Google');
 handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
 markers = handler.addMarkers([
   {
-    "lat": 0,
-    "lng": 0,
+    "lat": 49.282587,
+    "lng": -123.109482,
     "picture": {
       "url": "mapicon.png",
       "width":  36,
@@ -28,16 +28,10 @@ function createMarker(coords, map, title){
     title: title
   });
 }
+
 </script>
 
 
-
-<div class="container">
-  <div style='width: 500px;'>
-    <div id="map-container" style='width: 500px; height: 500px;'>
-      <div id="map-canvas"></div>
-      markers = handler.addMarkers(<%=raw @hash.to_json %>);
-    </div>
-  </div>
-
-</div>
+   <div style='width: 100%;'>
+     <div id="map" style='width: 100%; height: 550px;'></div>
+   </div>

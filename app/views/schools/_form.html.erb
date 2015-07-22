@@ -52,12 +52,16 @@
         <td><p><%= f.label :twitter %></p></td>
         <td><%= f.text_field :twitter %></td>
       </tr>
+      <tr>
+        <td><p><%= f.label :image %></p></td>
+        <td><p><%= f.file_field :image %></p></td>
+      </tr>
+
     </table>
   </div>
 
-
     <div class="col-md-4  col-xs-push-2">
-    <%= f.submit 'Create School', class: 'btn btn-default' %>
+    <%= f.submit "Let's Bootcamp!", class: 'btn btn-default' %>
     </div>
   </div>
 

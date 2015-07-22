@@ -1,6 +1,8 @@
 class School < ActiveRecord::Base
 
-  geocoded_by :address, :city, :country
+  mount_uploader :image, ImageUploader
+
+  geocoded_by :address
   after_validation :geocode
 
   validates :city, presence: true
@@ -21,7 +23,10 @@ class School < ActiveRecord::Base
   def self.tags_search(query)
     where("tags LIKE ? OR description LIKE ?", "%#{query}%")
   end
-
+  #
+  def address
+    [street_address, city, country, postal_code].compact.join(", ")
+  end
 
 
 

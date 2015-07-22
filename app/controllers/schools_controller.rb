@@ -1,6 +1,5 @@
 class SchoolsController < ApplicationController
 before_action :authenticate_user!
-#mount_uploaders :avatars, AvatarUploader
 
 
   def index
@@ -10,18 +9,25 @@ before_action :authenticate_user!
       @schools = School.all
     end
 
-      @schools = School.all
-      @hash = Gmaps4rails.build_markers(@schools) do |school, marker|
-      marker.lat school.latitude
-      marker.lng school.longitude
-    end
+
   end
 
 
 
   def new
     @school = School.new
+
   end
+
+  def update
+    @school = School.find(params[:id])
+    if @school.update(school_params)
+      redirect_to school_path(@school), notice: "School updated"
+    else
+      render :show
+    end
+  end
+
 
   def create
     @school = School.new(school_params)
@@ -41,7 +47,8 @@ before_action :authenticate_user!
   end
 
   def edit
-    redirect_to root_path, alert: "access denied" unless can? :edit, @school
+    #  redirect_to root_path, alert: "access denied" unless can? :edit, @school
+    @school = School.find(params[:id])
   end
 
   def destroy
@@ -54,12 +61,19 @@ before_action :authenticate_user!
     else
       @school = School.find(params[:id])
     end
+
+    @schools = School.all
+    @hash = Gmaps4rails.build_markers(@schools) do |school, marker|
+    marker.lat school.latitude
+    marker.lng school.longitude
+  end
+
   end
 
 private
 
   def school_params
-    params.require(:school).permit([:name, :description, :website, :email, :street_address, :city, :country, :postal_code, :facebook, :twitter, :phone_number, :avatar])
+    params.require(:school).permit([:name, :description, :website, :email, :street_address, :city, :country, :postal_code, :facebook, :twitter, :phone_number, :image])
   end
 
   def city_search_params

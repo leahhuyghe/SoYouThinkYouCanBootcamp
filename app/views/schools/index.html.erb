@@ -20,6 +20,11 @@
     <% schoolgroup.each do |school| %>
     <div class="col-md-6" style="padding-top: 50px;">
       <div class="school-show">
+
+        <% if school.image.present? %>
+          <%= image_tag school.image.url(:thumb) %>
+        <% end %>
+
       <h2 style="margin-top: 20px; color: #fff; text-shadow: 2px 2px 5px rgba(150, 150, 150, 1);">
         <%= school.name %></h2>
       <div class="row">

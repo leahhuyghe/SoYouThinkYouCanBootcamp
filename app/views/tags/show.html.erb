@@ -2,6 +2,7 @@
 <div class="container" style="padding-top: 50px;">
   <div class="alert alert-success" role="alert" style="margin-top: 50px;">
     <p>
+      <!-- Keeping plural/singular accurate -->
     <% if @tag.programs.length == 1 %>
       There <%= @tag.programs.length %> is program that matches <%=  @tag.name %>
     <% else %>
@@ -10,13 +11,17 @@
     </p>
   </div>
 
-  <div class="col-lg-6" style="padding-top: 70px;">
-    <h1>So You Think You Can <%= @tag.name %>?</h1>
-    <div class="school-show">
+<div class="text-center">
+  <h1>So You Think You Can <%= @tag.name %>?</h1>
+</div>
+
+  <div class="col-md-4" style="padding-top: 70px;">
+
+    <div class="tag-results-show">
         <% @tag.programs.each do |program| %>
-        <h5 style="margin-top: 50px; color: #fff; text-shadow: 2px 2px 5px rgba(150, 150, 150, 1);"><%= link_to program.name, program_path %></h5>
+        <h3><%= link_to program.name, program_path %></h3>
         <p>
-          at <%= program.tag %>
+          at <h4><%= link_to program.school.name, school_path %></h4>
         </p>
       <% end %>
     </div>

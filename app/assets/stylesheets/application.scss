@@ -1,3 +1,6 @@
+//= require chosen
+
+
 // ORANGE: #D4A16B;
 // RED: #BC3740;
 // GOLD: #ffad00;
@@ -113,6 +116,9 @@ p {
   color: #fff !important;
 }
 
+.update-links {
+  bottom: 0;
+}
 
 
 // ==========Buttons =================
@@ -198,6 +204,14 @@ p {
 
 .concrete {
   background-image: url(asset-path('concrete_seamless.png'));
+}
+
+.tag-results-show {
+  background-color: #ffad00;
+  border: 3px dotted #D4A16B;
+  border-radius: 10%;
+  text-align: center;
+
 }
 
 // ========================  Container elements! ========================
@@ -483,6 +497,8 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .chosen-container-single, .chosen-single {
   display: inline-box;
 }
+
+
 
 // ======================= Images ==============
 .thumbnail-image {
