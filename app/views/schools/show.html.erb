@@ -6,7 +6,7 @@
 
       <div class="col-md-6 col-md-push-3">
         <span>
-          <p><%= @school.programs.map(&:name).join(", ") %></p>
+          <p><%= @school.programs.map{|p| link_to p.name, p }.join(", ") %></p>
         </span>
 
         <hr style="

@@ -36,7 +36,7 @@
     <p>
       <i class="fa fa-puzzle-piece fa-2x"></i>&nbsp;&nbsp;&nbsp;Which skills are taught in this program?&nbsp; </p>
       <div class="chosen-container chosen-container-multi">
-        <%= f.collection_select :tag_ids, Tag.all, :id, :name, class: "chosen-container chosen-container-multi chosen-with-drop chosen-container-active chosen-select" %>
+        <%= f.collection_select :tag_ids, Tag.all, :id, :name, {}, multiple: true, class: "chosen-container chosen-container-multi chosen-with-drop chosen-container-active chosen-select" %>
       </div>
 
 

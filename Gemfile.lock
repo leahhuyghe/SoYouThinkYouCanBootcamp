@@ -26,6 +26,16 @@ GIT
       json (>= 1.7)
       mime-types (>= 1.16)
 
+GIT
+  remote: git://github.com/tsechingho/chosen-rails.git
+  revision: c316ca1300fd7fab6a4ffee44b2e51a5eaaf84fd
+  specs:
+    chosen-rails (1.4.2)
+      coffee-rails (>= 3.2)
+      compass-rails (>= 2.0.4)
+      railties (>= 3.0)
+      sass-rails (>= 3.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -87,7 +97,7 @@ GEM
       columnize (= 0.9.0)
     cancancan (1.10.1)
     choice (0.2.0)
-    chosen (0.0.4)
+    chunky_png (1.3.4)
     coderay (1.1.0)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
@@ -99,6 +109,22 @@ GEM
       execjs
     coffee-script-source (1.9.1.1)
     columnize (0.9.0)
+    compass (1.0.3)
+      chunky_png (~> 1.2)
+      compass-core (~> 1.0.2)
+      compass-import-once (~> 1.0.5)
+      rb-fsevent (>= 0.9.3)
+      rb-inotify (>= 0.9)
+      sass (>= 3.3.13, < 3.5)
+    compass-core (1.0.3)
+      multi_json (~> 1.0)
+      sass (>= 3.3.0, < 3.5)
+    compass-import-once (1.0.5)
+      sass (>= 3.2, < 3.5)
+    compass-rails (2.0.4)
+      compass (~> 1.0.0)
+      sass-rails (<= 5.0.1)
+      sprockets (< 2.13)
     csv-importer (0.1.3)
       virtus
     debug_inspector (0.0.2)
@@ -131,6 +157,7 @@ GEM
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
     hashie (3.4.2)
+    hike (1.2.3)
     hirb (0.7.3)
     http (0.6.4)
       http_parser.rb (~> 0.6.0)
@@ -168,7 +195,7 @@ GEM
     mini_magick (4.2.7)
     mini_portile (0.6.2)
     minitest (5.7.0)
-    multi_json (1.11.1)
+    multi_json (1.11.2)
     multipart-post (2.0.0)
     naught (1.0.0)
     nokogiri (1.6.6.2)
@@ -232,6 +259,9 @@ GEM
       activesupport (>= 3.0)
       i18n
       polyamorous (~> 1.2)
+    rb-fsevent (0.9.5)
+    rb-inotify (0.9.5)
+      ffi (>= 0.5.0)
     rdoc (4.2.0)
     responders (2.1.0)
       railties (>= 4.2.0, < 5)
@@ -253,8 +283,8 @@ GEM
       rspec-support (~> 3.3.0)
     rspec-support (3.3.0)
     ruby-graphviz (1.2.2)
-    sass (3.4.15)
-    sass-rails (5.0.3)
+    sass (3.4.16)
+    sass-rails (5.0.1)
       railties (>= 4.0.0, < 5.0)
       sass (~> 3.1)
       sprockets (>= 2.8, < 4.0)
@@ -268,8 +298,11 @@ GEM
     spoon (0.0.4)
       ffi
     spring (1.3.6)
-    sprockets (3.2.0)
+    sprockets (2.12.0)
+      hike (~> 1.2)
+      multi_json (~> 1.0)
       rack (~> 1.0)
+      tilt (~> 1.1, != 1.3.0)
     sprockets-rails (2.3.2)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
@@ -319,7 +352,7 @@ DEPENDENCIES
   byebug
   cancancan
   carrierwave!
-  chosen
+  chosen-rails!
   coffee-rails (~> 4.1.0)
   csv-importer
   devise
@@ -339,9 +372,10 @@ DEPENDENCIES
   rails (= 4.2.2)
   rails-erd
   rspec-rails
-  sass-rails (~> 5.0)
+  sass-rails (= 5.0.1)
   sdoc (~> 0.4.0)
   spring
+  sprockets (= 2.12)
   turbolinks
   twitter
   uglifier (>= 1.3.0)

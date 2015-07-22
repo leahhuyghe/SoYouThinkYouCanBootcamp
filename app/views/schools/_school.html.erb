@@ -7,7 +7,8 @@
     <h2 style="margin-top: 20px; color: #fff; text-shadow: 2px 2px 5px rgba(150, 150, 150, 1);"><%= school.name %> </h2>
 
     <div class="row">
-      <h4>Programs:</h4><p><%= school.programs.map(&:name).join(", ") %></p>
+      <h4>Programs:</h4>
+      <p><%= school.programs.map{|p| link_to p.name, p }.join(", ").html_safe %></p>
     </div>
 
     <hr style="

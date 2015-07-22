@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.2.2'
 gem 'pg'
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', '5.0.1'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
@@ -14,7 +14,6 @@ gem 'cancancan'
 
 gem "rails-erd"
 gem 'csv-importer'
-gem 'chosen'
 gem 'devise'
 gem 'activeadmin', github: 'activeadmin'
 gem 'carrierwave', github:'carrierwaveuploader/carrierwave'
@@ -26,6 +25,8 @@ gem 'omniauth-twitter'
 gem 'twitter'
 gem 'gmaps4rails'
 gem 'geocoder'
+gem "sprockets", "2.12"
+gem 'chosen-rails', github: 'tsechingho/chosen-rails'
 
 group :development, :test do
   gem 'interactive_editor'
