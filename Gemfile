@@ -27,6 +27,7 @@ gem 'gmaps4rails'
 gem 'geocoder'
 gem "sprockets", "2.12"
 gem 'chosen-rails', github: 'tsechingho/chosen-rails'
+gem 'underscore-rails'
 
 group :development, :test do
   gem 'interactive_editor'
