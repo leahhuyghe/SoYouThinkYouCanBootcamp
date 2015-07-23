@@ -4,7 +4,8 @@ class SearchController < ApplicationController
     if params[:city_search]
       @results = School.city_search(params[:city_search])
     elsif params[:tags_search]
-      @results = Program.tags_search(params[:tags_search])
+      @tag = Tag.find(params[:tags_search])
+      @results = @tag.programs
     end
   end
 

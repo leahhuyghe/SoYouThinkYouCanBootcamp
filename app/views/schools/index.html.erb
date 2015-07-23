@@ -20,13 +20,15 @@
     <% schoolgroup.each do |school| %>
     <div class="col-md-6" style="padding-top: 50px;">
       <div class="school-show">
+        <div class="school-image" style="margin-top: 20px;">
+          <% if school.image.present? %>
+            <%= image_tag school.image.url(:thumb), class: 'school-image' %>
+          <% end %>
+        </div>
 
-        <% if school.image.present? %>
-          <%= image_tag school.image.url(:thumb) %>
-        <% end %>
 
       <h2 style="margin-top: 20px; color: #fff; text-shadow: 2px 2px 5px rgba(150, 150, 150, 1);">
-        <%= school.name %></h2>
+        <%= link_to school.name%></h2>
       <div class="row">
       <div class="col-md-6 col-md-push-3">
           <p class="school-description"><%= school.description %></p>
@@ -61,7 +63,6 @@
                 <%= school.phone_number %>
               <% end %></p>
 
-
               <hr style="
               border: 0;
               height: 2px;
@@ -75,9 +76,6 @@
                 <%= link_to ('<i class="fa fa-facebook fa-2x"></i>').html_safe, school.facebook  %>
                 <%= link_to ('<i class="fa fa-twitter fa-2x"></i>').html_safe, school.twitter  %>
               </p>
-
-
-
 
             </div>
           </div>

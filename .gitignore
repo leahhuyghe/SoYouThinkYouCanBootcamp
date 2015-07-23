@@ -20,3 +20,4 @@
 /config/initializers/app_keys.rb
 /config/initializers/omniauth.rb
 /config/secrets.yml
+/public/uploads

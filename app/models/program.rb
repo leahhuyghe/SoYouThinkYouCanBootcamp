@@ -3,4 +3,9 @@ class Program < ActiveRecord::Base
   has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
 
+  def self.tags_search(query)
+  #  where("tags LIKE ? OR description LIKE ?", "%#{query}%", "%#{query}%")
+    
+   end
+
 end

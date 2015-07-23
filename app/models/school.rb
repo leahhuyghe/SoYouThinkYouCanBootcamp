@@ -20,9 +20,7 @@ class School < ActiveRecord::Base
   def self.city_search(query)
     where("city LIKE ?", "%#{query}%")
   end
-  def self.tags_search(query)
-    where("tags LIKE ? OR description LIKE ?", "%#{query}%")
-  end
+  
   #
   def address
     [street_address, city, country, postal_code].compact.join(", ")

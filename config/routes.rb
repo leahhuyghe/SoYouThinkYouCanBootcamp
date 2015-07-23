@@ -31,9 +31,9 @@ Rails.application.routes.draw do
 
   get '/programs/:id/edit' =>'programs#edit'
 
-  resources :tags, only: [:show]
+  resources :tags
   resources :faq
-  resources :search, only: :index
+  resources :search
 
   root 'welcome#index'
 

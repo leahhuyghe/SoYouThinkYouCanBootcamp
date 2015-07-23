@@ -8,15 +8,12 @@ before_action :authenticate_user!
     else
       @schools = School.all
     end
-
-
   end
 
 
 
   def new
     @school = School.new
-
   end
 
   def update
@@ -24,7 +21,7 @@ before_action :authenticate_user!
     if @school.update(school_params)
       redirect_to school_path(@school), notice: "School updated"
     else
-      render :show
+      render :edit
     end
   end
 
@@ -34,11 +31,8 @@ before_action :authenticate_user!
     @school.user = current_user
     if @school.save
       redirect_to school_path(@school), notice: "School created"
-
       # format.html { redirect_to school_path(@school), notice: "School created" }
       # format.js   { render  } # this renders: create.js.erb
-
-
     else
       format.html { render "/schools/show" }
       format.js   { render js: "alert('failure');"}
@@ -71,6 +65,7 @@ before_action :authenticate_user!
   end
 
 private
+
 
   def school_params
     params.require(:school).permit([:name, :description, :website, :email, :street_address, :city, :country, :postal_code, :facebook, :twitter, :phone_number, :image])
