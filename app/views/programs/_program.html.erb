@@ -1,7 +1,16 @@
-
 <!-- this partial is rendered as the 'result' of the program search -->
 
-  <h3><%= program.name %></h3>
-<p style="padding-top: 100px;">
-  hello
-</p>
+
+    <div style="margin-top: 100px;">
+      <div class="col-md-3 tag-show" style="margin: 1em;">
+        <div class="school-image" style="margin-top: 20px;">
+        <% if program.school.image.present? %>
+          <%= image_tag program.school.image.url(:thumb), class: 'school-image' %>
+        <% end %>
+      </div>
+        <span>
+            <h3><%= link_to program.name, program %></h3><h4><%= link_to program.school.name, program.school %></h4>
+        </span>
+
+      </div>
+    </div>

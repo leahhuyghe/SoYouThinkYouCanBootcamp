@@ -212,8 +212,7 @@ p {
 
 .concrete {
   background-image: url(asset-path('concrete_seamless.png'));
-  background-repeat: no-repeat;
-  background-size: cover;
+  
 }
 
 .tag-results-show {
@@ -506,6 +505,22 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 
 .chosen-container-single, .chosen-single {
   display: inline-box;
+}
+
+.tagsearch {
+  background-color: #f0ead6;
+  h2 {
+    color: #ffad00;
+  }
+}
+
+.tag-show {
+    min-height: 350px;
+    min-width: 350px;
+    border: 3px dotted #D4A16B;
+    border-radius: 5%;
+    background-color: #ffad00;
+    margin-bottom: 2em;
 }
 
 // ======================= Images ==============

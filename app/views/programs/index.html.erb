@@ -51,6 +51,18 @@
                   <% end %>
                 </p>
               </span>
+              <span>
+                <i class="fa fa-puzzle-piece fa-4x text-center"></i>
+                <p>
+
+                  <% program.tags.each do |tag| %>
+                  <%= link_to tag.name, tag %>&nbsp;&nbsp;&nbsp;
+                  <% end %>
+
+                  <!-- <%#= @program.tags.map(&:name).join(", ") %>
+                  <%# TODO: make the map of tags link_tos to go to a show page that searches for programs of that tag. %> -->
+                </p>
+              </span>
 
               <span>
                 <%= link_to ('<i class="fa fa-link fa-2x"></i>').html_safe, program.school.website %>

@@ -18,9 +18,9 @@
 
               <i class="fa fa-clock-o fa-2x"></i>
               &nbsp;&nbsp;&nbsp;
-              <% if @program.full_time == true || "true" || "TRUE" %>
+              <% if @program.full_time == true %>
               <%= "Full Time" %>
-              <% elsif @program.full_time == false %>
+              <% else  %>
               <%="Part Time" %>
               <% end %>
             </p>
@@ -45,9 +45,13 @@
             <%= link_to ('<i class="fa fa-facebook fa-2x"></i>').html_safe, @program.school.facebook  %>
             <%= link_to ('<i class="fa fa-twitter fa-2x"></i>').html_safe, @program.school.twitter  %>
           </span>
-          <p>
+          <div class="update-links" style="margin-top: 30px;">
+            <span>
+              <p>
             <%= link_to 'Edit', edit_program_path %>
           </p>
+        </span>
+      </div>
         </div>
       </div>
     </div>

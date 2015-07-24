@@ -1,12 +1,16 @@
 <%= render partial: 'layouts/nav' %>
 
-<div class="container">
+<div class="container tagsearch">
   <div class="col-lg-12 results">
+    <h2><% if params[:city_search] %>
+    Bootcamps in <span style="color: #BC3740;"><%= @search_term %></span> </h2>
+    <% elsif params[:tags_search] %>
+    So You Think You Can <span style="color: #BC3740;"><%= @tag.name %></span> ?
+
+    <% end %></h2>
     <% @results.each do |result| %>
     <%= render partial: result %>
-    <%= result.name %>
-
-    <% end %>
+      <% end %>
   </div>
 </div>
 
